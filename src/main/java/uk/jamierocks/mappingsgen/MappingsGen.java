@@ -29,12 +29,14 @@ public class MappingsGen {
             line = line.replace("rule ", "");
 
             String[] mapping = line.split(" ");
-            b.put(mapping[0].replace(" ", ""), mapping[1].replace(" ", ""));
 
             String classLine = String.format("CL: %s %s\n", mapping[0], mapping[1]);
             byte[] data = classLine.getBytes();
 
-            fos.write(data, 0, data.length);
+            if (!classLine.contains("@")) {
+                b.put(mapping[0].replace(" ", ""), mapping[1].replace(" ", ""));
+                fos.write(data, 0, data.length);
+            }
         }
 
         classMappings = b.build();

@@ -1,11 +1,13 @@
 package uk.jamierocks.mappingsgen;
 
+import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 
@@ -19,6 +21,10 @@ public class MappingsGen {
 
     // This map stores the deobf -> obf class names
     private static Map<String, String> classMappings = Maps.newHashMap();
+
+    // These Lists are used to seperate the methods and fields in the output file
+    private static List<String> fieldLines = Lists.newArrayList();
+    private static List<String> methodLines = Lists.newArrayList();
 
     public static void main(String[] args) throws IOException {
         FileInputStream rules = new FileInputStream(classRules);
@@ -67,10 +73,9 @@ public class MappingsGen {
                 String deobfuscated = className + "/" + mapping[1];
 
                 String fieldLine = String.format("FD: %s %s\n", obfuscated, deobfuscated);
-                byte[] data = fieldLine.getBytes();
 
                 if (!fieldLine.contains("$") && !thing.equalsIgnoreCase(mapping[1])) {
-                    srgFile.write(data, 0, data.length);
+                    fieldLines.add(fieldLine);
                 }
             } else if(line.startsWith(".method_map ")) {
                 line = line.replace(".method_map ", "");
@@ -88,9 +93,17 @@ public class MappingsGen {
                 String lastOriginal = originalSplit[originalSplit.length-1];
 
                 if (!lastOriginal.equalsIgnoreCase(mappings[2])) {
-                    srgFile.write(methodLine.getBytes());
+                    methodLines.add(methodLine);
                 }
             }
+        }
+
+        for  (String fieldLine : fieldLines) {
+            srgFile.write(fieldLine.getBytes());
+        }
+
+        for (String methodLine : methodLines) {
+            srgFile.write(methodLine.getBytes());
         }
 
         rules.close();

@@ -83,7 +83,13 @@ public class MappingsGen {
                 String modifiedType = mappings[1];
 
                 String methodLine = String.format("MD: %s %s %s %s\n", original, originalType, modified, modifiedType);
-                srgFile.write(methodLine.getBytes()); //todo: check if they are the same
+
+                String[] originalSplit = original.split("/");
+                String lastOriginal = originalSplit[originalSplit.length-1];
+
+                if (!lastOriginal.equalsIgnoreCase(mappings[2])) {
+                    srgFile.write(methodLine.getBytes());
+                }
             }
         }
 

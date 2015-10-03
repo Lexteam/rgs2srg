@@ -139,19 +139,13 @@ CL: de/jarnbjo/vorbis/p de/jarnbjo/vorbis/Residue2
 CL: de/jarnbjo/vorbis/q de/jarnbjo/vorbis/SetupHeader
 CL: de/jarnbjo/vorbis/r de/jarnbjo/vorbis/IdentificationHeader
 FD: com/mojang/minecraft/h/a com/mojang/minecraft/SkinDownloadThread/minecraft
-MD: com/mojang/minecraft/h/run ()V com/mojang/minecraft/SkinDownloadThread/run ()V
 MD: com/mojang/minecraft/c/a/a ([I[II)Z com/mojang/minecraft/sound/Audio/play ([I[II)Z
-MD: com/mojang/minecraft/particle/TerrainParticle/getParticleTexture ()I com/mojang/minecraft/particle/TerrainParticle/getParticleTexture ()I
 MD: com/mojang/minecraft/particle/TerrainParticle/render$12562f50 (Lcom/mojang/minecraft/render/ShapeRenderer;FFFFFF)V com/mojang/minecraft/particle/TerrainParticle/render (Lcom/mojang/minecraft/render/ShapeRenderer;FFFFFF)V
 FD: com/mojang/minecraftui/GenerateLevelScreen/g com/mojang/minecraftui/GenerateLevelScreen/parent
 MD: com/mojang/minecraft/e/g/a ()V com/mojang/minecraft/gui/GenerateLevelScreen/onOpen ()V
 MD: com/mojang/minecraft/e/g/a (Lcom/mojang/minecraft/gui/Button;)V com/mojang/minecraft/gui/GenerateLevelScreen/onButtonClick (Lcom/mojang/minecraft/gui/Button;)V
 MD: com/mojang/minecraft/e/g/a (II)V com/mojang/minecraft/gui/GenerateLevelScreen/render (II)V
 FD: com/mojang/minecraft/b/b/a com/mojang/minecraft/render/ChunkVisibleDistanceComparator/player
-MD: com/mojang/minecraft/b/b/compare (Ljava/lang/Object;Ljava/lang/Object;)I com/mojang/minecraft/render/ChunkVisibleDistanceComparator/compare (Ljava/lang/Object;Ljava/lang/Object;)I
-MD: com/mojang/minecraft/mob/Sheep/aiStep ()V com/mojang/minecraft/mob/Sheep/aiStep ()V
-MD: com/mojang/minecraft/mob/Sheep/die (Lcom/mojang/minecraft/Entity;)V com/mojang/minecraft/mob/Sheep/die (Lcom/mojang/minecraft/Entity;)V
-MD: com/mojang/minecraft/mob/Sheep/hurt (Lcom/mojang/minecraft/Entity;I)V com/mojang/minecraft/mob/Sheep/hurt (Lcom/mojang/minecraft/Entity;I)V
 MD: com/mojang/minecraft/mob/Sheep/renderModel$f1c6c5a (Lcom/mojang/minecraft/render/TextureManager;FFFFFF)V com/mojang/minecraft/mob/Sheep/renderModel (Lcom/mojang/minecraft/render/TextureManager;FFFFFF)V
 FD: com/mojang/minecraft/d/c/c com/mojang/minecraft/gamemode/SurvivalGameMode/hitX
 FD: com/mojang/minecraft/d/c/d com/mojang/minecraft/gamemode/SurvivalGameMode/hitY
@@ -195,7 +189,6 @@ FD: com/mojang/minecraft/e/q/j com/mojang/minecraft/gui/LoadLevelScreen/frozen
 FD: com/mojang/minecraft/e/q/k com/mojang/minecraft/gui/LoadLevelScreen/chooser
 FD: com/mojang/minecraft/e/q/l com/mojang/minecraft/gui/LoadLevelScreen/saving
 FD: comojanginecraft/gui/LoadLevelScreen/m comojanginecraft/gui/LoadLevelScreen/selectedFile
-MD: com/mojang/minecraft/e/q/run ()V com/mojang/minecraft/gui/LoadLevelScreen/run ()V
 MD: com/mojang/minecraft/e/q/a ([Ljava/lang/String;)V com/mojang/minecraft/gui/LoadLevelScreen/setLevels ([Ljava/lang/String;)V
 MD: com/mojang/minecraft/e/q/a ()V com/mojang/minecraft/gui/LoadLevelScreen/onOpen ()V
 MD: com/mojang/minecraft/e/q/a (Lcom/mojang/minecraft/gui/Button;)V com/mojang/minecraft/gui/LoadLevelScreen/onButtonClick (Lcom/mojang/minecraft/gui/Button;)V
@@ -279,7 +272,6 @@ FD: com/mojang/minecraft/net/e/c com/mojang/minecraft/net/ServerConnectThread/us
 FD: com/mojang/minecraft/net/e/d com/mojang/minecraft/net/ServerConnectThread/key
 FD: com/mojang/minecraft/net/e/e com/mojang/minecraft/net/ServerConnectThread/minecraft
 FD: com/mojang/minecraft/net/e/f com/mojang/minecraft/net/ServerConnectThread/netManager
-MD: com/mojang/minecraft/net/e/run ()V com/mojang/minecraft/net/ServerConnectThread/run ()V
 FD: com/mojang/minecraft/a/g/a com/mojang/minecraft/model/ModelManager/human
 FD: com/mojang/minecraft/a/g/b com/mojang/minecraft/model/ModelManager/armoredHuman
 FD: com/mojang/minecraft/a/g/c com/mojang/minecraft/model/ModelManager/creeper
@@ -300,9 +292,7 @@ MD: com/mojang/minecraft/e/c/a ()V com/mojang/minecraft/gui/ControlsScreen/onOpe
 MD: com/mojang/minecraft/e/c/a (Lcom/mojang/minecraft/gui/Button;)V com/mojang/minecraft/gui/ControlsScreen/onButtonClick (Lcom/mojang/minecraft/gui/Button;)V
 MD: com/mojang/minecraft/e/c/a (CI)V com/mojang/minecraft/gui/ControlsScreen/onKeyPress (CI)V
 MD: com/mojang/minecraft/e/c/a (II)V com/mojang/minecraft/gui/ControlsScreen/render (II)V
-MD: com/mojang/minecraft/mob/ai/JumpAttackAI/jumpFromGround ()V com/mojang/minecraft/mob/ai/JumpAttackAI/jumpFromGround ()V
 MD: com/mojang/minecraft/particle/WaterDropParticle/render$12562f50 (Lcom/mojang/minecraft/render/ShapeRenderer;FFFFFF)V com/mojang/minecraft/particle/WaterDropParticle/render (Lcom/mojang/minecraft/render/ShapeRenderer;FFFFFF)V
-MD: com/mojang/minecraft/particle/WaterDropParticle/tick ()V com/mojang/minecraft/particle/WaterDropParticle/tick ()V
 FD: com/mojang/minecraft/a/c/a com/mojang/minecraft/model/Vec3D/x
 FD: com/mojang/minecraft/a/c/b com/mojang/minecraft/model/Vec3D/y
 FD: com/mojang/minecraft/a/c/c com/mojang/minecraft/model/Vec3D/z
@@ -314,37 +304,19 @@ MD: com/mojang/minecraft/a/c/c (Lcom/mojang/minecraft/model/Vec3D;)F com/mojang/
 MD: com/mojang/minecraft/a/c/a (Lcom/mojang/minecraft/model/Vec3D;F)Lcom/mojang/minecraft/model/Vec3D; com/mojang/minecraft/model/Vec3D/getXIntersection (Lcom/mojang/minecraft/model/Vec3D;F)Lcom/mojang/minecraft/model/Vec3D;
 MD: com/mojang/minecraft/a/c/b (Lcom/mojang/minecraft/model/Vec3D;F)Lcom/mojang/minecraft/model/Vec3D; com/mojang/minecraft/model/Vec3D/getYIntersection (Lcom/mojang/minecraft/model/Vec3D;F)Lcom/mojang/minecraft/model/Vec3D;
 MD: com/mojang/minecraft/a/c/c (Lcom/mojang/minecraft/model/Vec3D;F)Lcom/mojang/minecraft/model/Vec3D; com/mojang/minecraft/model/Vec3D/getZIntersection (Lcom/mojang/minecraft/model/Vec3D;F)Lcom/mojang/minecraft/model/Vec3D;
-MD: com/mojang/minecraft/a/c/toString ()Ljava/lang/String; com/mojang/minecraft/model/Vec3D/toString ()Ljava/lang/String;
-MD: com/mojang/minecraft/mob/ai/AI/tick (Lcom/mojang/minecraft/level/Level;Lcom/mojang/minecraft/mob/Mob;)V com/mojang/minecraft/mob/ai/AI/tick (Lcom/mojang/minecraft/level/Level;Lcom/mojang/minecraft/mob/Mob;)V
-MD: com/mojang/minecraft/mob/ai/AI/beforeRemove ()V com/mojang/minecraft/mob/ai/AI/beforeRemove ()V
-MD: com/mojang/minecraft/mob/ai/AI/hurt (Lcom/mojang/minecraft/Entity;I)V com/mojang/minecraft/mob/ai/AI/hurt (Lcom/mojang/minecraft/Entity;I)V
 FD: com/mojang/minecraft/j/a com/mojang/minecraft/KeyBinding/name
 FD: com/mojang/minecraft/j/b com/mojang/minecraft/KeyBinding/key
 MD: com/mojang/minecraft/level/tile/s/c (Lcom/mojang/minecraft/level/Level;III)V com/mojang/minecraft/level/tile/SpongeBlock/onAdded (Lcom/mojang/minecraft/level/Level;III)V
 MD: com/mojang/minecraft/level/tile/s/d (Lcom/mojang/minecraft/level/Level;III)V com/mojang/minecraft/level/tile/SpongeBlock/onRemoved (Lcom/mojang/minecraft/level/Level;III)V
 FD: com/mojang/minecraft/player/Player/a com/mojang/minecraft/player/Player/newTextureId
-MD: com/mojang/minecraft/player/Player/resetPos ()V com/mojang/minecraft/player/Player/resetPos ()V
-MD: com/mojang/minecraft/player/Player/aiStep ()V com/mojang/minecraft/player/Player/aiStep ()V
 MD: com/mojang/minecraft/player/Player/render$2a8c5a (Lcom/mojang/minecraft/render/TextureManager;F)V com/mojang/minecraft/player/Player/render (Lcom/mojang/minecraft/render/TextureManager;F)V
-MD: com/mojang/minecraft/player/Player/releaseAllKeys ()V com/mojang/minecraft/player/Player/releaseAllKeys ()V
-MD: com/mojang/minecraft/player/Player/setKey (IZ)V com/mojang/minecraft/player/Player/setKey (IZ)V
-MD: com/mojang/minecraft/player/Player/addResource (I)Z com/mojang/minecraft/player/Player/addResource (I)Z
-MD: com/mojang/minecraft/player/Player/getScore ()I com/mojang/minecraft/player/Player/getScore ()I
-MD: com/mojang/minecraft/player/Player/getModel ()Lcom/mojang/minecraft/model/HumanoidModel; com/mojang/minecraft/player/Player/getModel ()Lcom/mojang/minecraft/model/HumanoidModel;
-MD: com/mojang/minecraft/player/Player/die (Lcom/mojang/minecraft/Entity;)V com/mojang/minecraft/player/Player/die (Lcom/mojang/minecraft/Entity;)V
-MD: com/mojang/minecraft/player/Player/remove ()V com/mojang/minecraft/player/Player/remove ()V
-MD: com/mojang/minecraft/player/Player/awardKillScore (Lcom/mojang/minecraft/Entity;I)V com/mojang/minecraft/player/Player/awardKillScore (Lcom/mojang/minecraft/Entity;I)V
-MD: com/mojang/minecraft/player/Player/isShootable ()Z com/mojang/minecraft/player/Player/isShootable ()Z
 MD: com/mojang/minecraft/player/Player/bindTexture$4211e026 (Lcom/mojang/minecraft/render/TextureManager;)V com/mojang/minecraft/player/Player/bindTexture (Lcom/mojang/minecraft/render/TextureManager;)V
-MD: com/mojang/minecraft/player/Player/hurt (Lcom/mojang/minecraft/Entity;I)V com/mojang/minecraft/player/Player/hurt (Lcom/mojang/minecraft/Entity;I)V
-MD: com/mojang/minecraft/player/Player/isCreativeModeAllowed ()Z com/mojang/minecraft/player/Player/isCreativeModeAllowed ()Z
 FD: com/mojang/minecraft/c/i/a com/mojang/minecraft/sound/SoundPlayer/running
 FD: com/mojang/minecraft/c/i/b com/mojang/minecraft/sound/SoundPlayer/dataLine
 FD: com/mojang/minecraft/c/i/d com/mojang/minecraft/sound/SoundPlayer/audioQueue
 FD: com/mojang/minecraft/c/i/c com/mojang/minecraft/sound/SoundPlayer/settings
 MD: com/mojang/minecraft/c/i/a (Lcom/mojang/minecraft/sound/Audio;)V com/mojang/minecraft/sound/SoundPlayer/play (Lcom/mojang/minecraft/sound/Audio;)V
 MD: com/mojang/minecraft/c/i/a (Lcom/mojang/minecraft/sound/AudioInfo;Lcom/mojang/minecraft/sound/SoundPos;)V com/mojang/minecraft/sound/SoundPlayer/play (Lcom/mojang/minecraft/sound/AudioInfo;Lcom/mojang/minecraft/sound/SoundPos;)V
-MD: com/mojang/minecraft/c/i/run ()V com/mojang/minecraft/sound/SoundPlayer/run ()V
 FD: com/mojang/minecraft/a/a com/mojang/minecraft/SessionData/allowedBlocks
 FD: com/mojang/minecraft/a/b com/mojang/minecraft/SessionData/username
 FD: com/mojang/minecraft/a/c com/mojang/minecraft/SessionData/sessionId
@@ -389,18 +361,10 @@ FD: com/mojang/minecraft/player/a/c com/mojang/minecraft/player/InputHandler/yya
 MD: com/mojang/minecraft/player/a/a ()V com/mojang/minecraft/player/InputHandler/updateMovement ()V
 MD: com/mojang/minecraft/player/a/b ()V com/mojang/minecraft/player/InputHandler/resetKeys ()V
 MD: com/mojang/minecraft/player/a/a (IZ)V com/mojang/minecraft/player/InputHandler/setKeyState (IZ)V
-MD: com/mojang/minecraft/MinecraftApplet/init ()V com/mojang/minecraft/MinecraftApplet/init ()V
-MD: com/mojang/minecraft/MinecraftApplet/startGameThread ()V com/mojang/minecraft/MinecraftApplet/startGameThread ()V
-MD: com/mojang/minecraft/MinecraftApplet/start ()V com/mojang/minecraft/MinecraftApplet/start ()V
-MD: com/mojang/minecraft/MinecraftApplet/stop ()V com/mojang/minecraft/MinecraftApplet/stop ()V
-MD: com/mojang/minecraft/MinecraftApplet/destroy ()V com/mojang/minecraft/MinecraftApplet/destroy ()V
-MD: com/mojang/minecraft/MinecraftApplet/stopGameThread ()V com/mojang/minecraft/MinecraftApplet/stopGameThread ()V
 FD: com/mojang/minecraft/c/j/b com/mojang/minecraft/sound/SoundInfo/data
 FD: com/mojang/minecraft/c/j/c com/mojang/minecraft/sound/SoundInfo/seek
 FD: com/mojang/minecraft/c/j/d com/mojang/minecraft/sound/SoundInfo/pitch
 MD: com/mojang/minecraft/c/j/a ([SI)I com/mojang/minecraft/sound/SoundInfo/update ([SI)I
-MD: com/mojang/minecraft/mob/Skeleton$1/tick (Lcom/mojang/minecraft/level/Level;Lcom/mojang/minecraft/mob/Mob;)V com/mojang/minecraft/mob/Skeleton$1/tick (Lcom/mojang/minecraft/level/Level;Lcom/mojang/minecraft/mob/Mob;)V
-MD: com/mojang/minecraft/mob/Skeleton$1/beforeRemove ()V com/mojang/minecraft/mob/Skeleton$1/beforeRemove ()V
 FD: de/jarnbjo/vorbis/a/a de/jarnbjo/vorbis/Mapping0/magnitudes
 FD: de/jarnbjo/vorbis/a/b de/jarnbjo/vorbis/Mapping0/angles
 FD: de/jarnbjo/vorbis/a/c de/jarnbjo/vorbis/Mapping0/mux
@@ -427,7 +391,6 @@ MD: com/mojang/minecraft/b/i/a (FFFFFF)Z com/mojang/minecraft/render/Frustum/isB
 FD: com/mojang/minecraft/c/b com/mojang/minecraft/ResourceDownloadThread/dir
 FD: com/mojang/minecraft/c/c com/mojang/minecraft/ResourceDownloadThread/minecraft
 FD: com/mojang/minecraft/c/a com/mojang/minecraft/ResourceDownloadThread/stopping
-MD: com/mojang/minecraft/c/run ()V com/mojang/minecraft/ResourceDownloadThread/run ()V
 MD: com/mojang/minecraft/c/a (Ljava/net/URL;Ljava/io/File;)V com/mojang/minecraft/ResourceDownloadThread/download (Ljava/net/URL;Ljava/io/File;)V
 FD: com/mojang/minecraft/level/a/a/a com/mojang/minecraft/level/generator/LevelGenerator/progressBar
 FD: com/mojang/minecraft/level/a/a/b com/mojang/minecraft/level/generator/LevelGenerator/width
@@ -459,22 +422,6 @@ FD: dearnbjo/vorbis/VorbisStream/j dearnbjo/vorbis/VorbisStream/pageCounter
 FD: de/jarnbjo/vorbis/b/k de/jarnbjo/vorbis/VorbisStream/currentGranulePosition
 MD: de/jarnbjo/vorbis/b/a ([BII)I de/jarnbjo/vorbis/VorbisStream/readPcm ([BII)I
 MD: de/jarnbjo/vorbis/b/a ()Lde/jarnbjo/vorbis/AudioPacket; de/jarnbjo/vorbis/VorbisStream/getNextAudioPacket ()Lde/jarnbjo/vorbis/AudioPacket;
-MD: com/mojang/minecraft/player/Player$1/update ()V com/mojang/minecraft/player/Player$1/update ()V
-MD: com/mojang/minecraft/phys/AABB/expand (FFF)Lcom/mojang/minecraft/phys/AABB; com/mojang/minecraft/phys/AABB/expand (FFF)Lcom/mojang/minecraft/phys/AABB;
-MD: com/mojang/minecraft/phys/AABB/grow (FFF)Lcom/mojang/minecraft/phys/AABB; com/mojang/minecraft/phys/AABB/grow (FFF)Lcom/mojang/minecraft/phys/AABB;
-MD: com/mojang/minecraft/phys/AABB/cloneMove (FFF)Lcom/mojang/minecraft/phys/AABB; com/mojang/minecraft/phys/AABB/cloneMove (FFF)Lcom/mojang/minecraft/phys/AABB;
-MD: com/mojang/minecraft/phys/AABB/clipXCollide (Lcom/mojang/minecraft/phys/AABB;F)F com/mojang/minecraft/phys/AABB/clipXCollide (Lcom/mojang/minecraft/phys/AABB;F)F
-MD: com/mojang/minecraft/phys/AABB/clipYCollide (Lcom/mojang/minecraft/phys/AABB;F)F com/mojang/minecraft/phys/AABB/clipYCollide (Lcom/mojang/minecraft/phys/AABB;F)F
-MD: com/mojang/minecraft/phys/AABB/clipZCollide (Lcom/mojang/minecraft/phys/AABB;F)F com/mojang/minecraft/phys/AABB/clipZCollide (Lcom/mojang/minecraft/phys/AABB;F)F
-MD: com/mojang/minecraft/phys/AABB/intersects (Lcom/mojang/minecraft/phys/AABB;)Z com/mojang/minecraft/phys/AABB/intersects (Lcom/mojang/minecraft/phys/AABB;)Z
-MD: com/mojang/minecraft/phys/AABB/intersectsInner (Lcom/mojang/minecraft/phys/AABB;)Z com/mojang/minecraft/phys/AABB/intersectsInner (Lcom/mojang/minecraft/phys/AABB;)Z
-MD: com/mojang/minecraft/phys/AABB/move (FFF)V com/mojang/minecraft/phys/AABB/move (FFF)V
-MD: com/mojang/minecraft/phys/AABB/intersects (FFFFFF)Z com/mojang/minecraft/phys/AABB/intersects (FFFFFF)Z
-MD: com/mojang/minecraft/phys/AABB/contains (Lcom/mojang/minecraft/model/Vec3D;)Z com/mojang/minecraft/phys/AABB/contains (Lcom/mojang/minecraft/model/Vec3D;)Z
-MD: com/mojang/minecraft/phys/AABB/getSize ()F com/mojang/minecraft/phys/AABB/getSize ()F
-MD: com/mojang/minecraft/phys/AABB/shrink (FFF)Lcom/mojang/minecraft/phys/AABB; com/mojang/minecraft/phys/AABB/shrink (FFF)Lcom/mojang/minecraft/phys/AABB;
-MD: com/mojang/minecraft/phys/AABB/copy ()Lcom/mojang/minecraft/phys/AABB; com/mojang/minecraft/phys/AABB/copy ()Lcom/mojang/minecraft/phys/AABB;
-MD: com/mojang/minecraft/phys/AABB/clip (Lcom/mojang/minecraft/model/Vec3D;Lcom/mojang/minecraft/model/Vec3D;)Lcom/mojang/minecraft/MovingObjectPosition; com/mojang/minecraft/phys/AABB/clip (Lcom/mojang/minecraft/model/Vec3D;Lcom/mojang/minecraft/model/Vec3D;)Lcom/mojang/minecraft/MovingObjectPosition;
 MD: com/mojang/minecraft/phys/AABB/a (Lcom/mojang/minecraft/model/Vec3D;)Z com/mojang/minecraft/phys/AABB/xIntersects (Lcom/mojang/minecraft/model/Vec3D;)Z
 MD: com/mojang/minecraft/phys/AABB/b (Lcom/mojang/minecraft/model/Vec3D;)Z com/mojang/minecraft/phys/AABB/yIntersects (Lcom/mojang/minecraft/model/Vec3D;)Z
 MD: com/mojang/minecraft/phys/AABB/c (Lcom/mojang/minecraft/model/Vec3D;)Z com/mojang/minecraft/phys/AABB/zIntersects (Lcom/mojang/minecraft/model/Vec3D;)Z
@@ -511,11 +458,7 @@ MD: com/mojang/minecraft/k/b ()V com/mojang/minecraft/GameSettings/save ()V
 FD: de/jarnbjo/vorbis/c/b de/jarnbjo/vorbis/Floor0/bookList
 MD: de/jarnbjo/vorbis/c/a (Lde/jarnbjo/vorbis/VorbisStream;Lde/jarnbjo/util/io/BitInputStream;)Lde/jarnbjo/vorbis/Floor; de/jarnbjo/vorbis/Floor0/decodeFloor (Lde/jarnbjo/vorbis/VorbisStream;Lde/jarnbjo/util/io/BitInputStream;)Lde/jarnbjo/vorbis/Floor;
 MD: de/jarnbjo/vorbis/c/a ([F)V de/jarnbjo/vorbis/Floor0/computeFloor ([F)V
-MD: com/mojang/minecraft/item/Arrow/tick ()V com/mojang/minecraft/item/Arrow/tick ()V
 MD: com/mojang/minecraft/item/Arrow/render$2a8c5a (Lcom/mojang/minecraft/render/TextureManager;F)V com/mojang/minecraft/item/Arrow/render (Lcom/mojang/minecraft/render/TextureManager;F)V
-MD: com/mojang/minecraft/item/Arrow/awardKillScore (Lcom/mojang/minecraft/Entity;I)V com/mojang/minecraft/item/Arrow/awardKillScore (Lcom/mojang/minecraft/Entity;I)V
-MD: com/mojang/minecraft/item/Arrow/getOwner ()Lcom/mojang/minecraft/Entity; com/mojang/minecraft/item/Arrow/getOwner ()Lcom/mojang/minecraft/Entity;
-MD: com/mojang/minecraft/item/Arrow/playerTouch (Lcom/mojang/minecraft/Entity;)V com/mojang/minecraft/item/Arrow/playerTouch (Lcom/mojang/minecraft/Entity;)V
 FD: com/mojang/minecraft/d/a com/mojang/minecraft/Timer/tps
 FD: com/mojang/minecraft/d/b com/mojang/minecraft/Timer/lastHR
 FD: com/mojang/minecraft/d/c com/mojang/minecraft/Timer/elapsedTicks
@@ -526,7 +469,6 @@ FD: com/mojang/minecraft/d/g com/mojang/minecraft/Timer/lastSysClock
 FD: com/mojang/minecraft/d/h com/mojang/minecraft/Timer/lastHRClock
 FD: com/mojang/minecraft/d/i com/mojang/minecraft/Timer/adjustment
 FD: com/mojang/minecraft/b/f/a com/mojang/minecraft/render/ChunkDistanceComparator/player
-MD: com/mojang/minecraft/b/f/compare (Ljava/lang/Object;Ljava/lang/Object;)I com/mojang/minecraft/render/ChunkDistanceComparator/compare (Ljava/lang/Object;Ljava/lang/Object;)I
 FD: com/mojang/minecraft/c/m/a com/mojang/minecraft/sound/Music/playing
 FD: com/mojang/minecraft/c/m/b com/mojang/minecraft/sound/Music/current
 FD: com/mojang/minecraft/c/m/h com/mojang/minecraft/sound/Music/processing
@@ -538,8 +480,6 @@ FD: com/mojang/minecraft/c/m/g com/mojang/minecraft/sound/Music/stopped
 MD: com/mojang/minecraft/c/m/a ([I[II)Z com/mojang/minecraft/sound/Music/play ([I[II)Z
 FD: de/jarnbjo/vorbis/d/a de/jarnbjo/vorbis/CommentHeader/comments
 MD: de/jarnbjo/vorbis/d/a (Lde/jarnbjo/util/io/BitInputStream;)Ljava/lang/String; de/jarnbjo/vorbis/CommentHeader/getString (Lde/jarnbjo/util/io/BitInputStream;)Ljava/lang/String;
-MD: com/mojang/minecraft/MinecraftApplet$1/addNotify ()V com/mojang/minecraft/MinecraftApplet$1/addNotify ()V
-MD: com/mojang/minecraft/MinecraftApplet$1/removeNotify ()V com/mojang/minecraft/MinecraftApplet$1/removeNotify ()V
 FD: com/mojang/minecraft/net/b/a com/mojang/minecraft/net/PositionUpdate/x
 FD: com/mojang/minecraft/net/b/b com/mojang/minecraft/net/PositionUpdate/y
 FD: com/mojang/minecraft/net/b/c com/mojang/minecraft/net/PositionUpdate/z
@@ -607,7 +547,6 @@ FD: de/jarnbjo/vorbis/e/m de/jarnbjo/vorbis/Floor1/highNeighbours
 FD: de/jarnbjo/vorbis/e/n de/jarnbjo/vorbis/Floor1/RANGES
 MD: de/jarnbjo/vorbis/e/a (Lde/jarnbjo/vorbis/VorbisStream;Lde/jarnbjo/util/io/BitInputStream;)Lde/jarnbjo/vorbis/Floor; de/jarnbjo/vorbis/Floor1/decodeFloor (Lde/jarnbjo/vorbis/VorbisStream;Lde/jarnbjo/util/io/BitInputStream;)Lde/jarnbjo/vorbis/Floor;
 MD: de/jarnbjo/vorbis/e/a ([F)V de/jarnbjo/vorbis/Floor1/computeFloor ([F)V
-MD: de/jarnbjo/vorbis/e/clone ()Ljava/lang/Object; de/jarnbjo/vorbis/Floor1/clone ()Ljava/lang/Object;
 FD: com/mojang/minecraftui/OptionsScreen/g com/mojang/minecraftui/OptionsScreen/parent
 FD: com/mojang/minecraft/e/f/h com/mojang/minecraft/gui/OptionsScreen/title
 FD: com/mojang/minecraft/e/f/j com/mojang/minecraft/gui/OptionsScreen/settings
@@ -615,12 +554,7 @@ MD: com/mojang/minecraft/e/f/a ()V com/mojang/minecraft/gui/OptionsScreen/onOpen
 MD: com/mojang/minecraft/e/f/a (Lcom/mojang/minecraft/gui/Button;)V com/mojang/minecraft/gui/OptionsScreen/onButtonClick (Lcom/mojang/minecraft/gui/Button;)V
 MD: com/mojang/minecraft/e/f/a (II)V com/mojang/minecraft/gui/OptionsScreen/render (II)V
 FD: com/mojang/minecraft/a/i/a com/mojang/minecraft/model/TexturedQuad/vertices
-MD: com/mojang/minecraft/particle/Particle/setPower (F)Lcom/mojang/minecraft/particle/Particle; com/mojang/minecraft/particle/Particle/setPower (F)Lcom/mojang/minecraft/particle/Particle;
-MD: com/mojang/minecraft/particle/Particle/scale (F)Lcom/mojang/minecraft/particle/Particle; com/mojang/minecraft/particle/Particle/scale (F)Lcom/mojang/minecraft/particle/Particle;
-MD: com/mojang/minecraft/particle/Particle/tick ()V com/mojang/minecraft/particle/Particle/tick ()V
 MD: com/mojang/minecraft/particle/Particle/render$12562f50 (Lcom/mojang/minecraft/render/ShapeRenderer;FFFFFF)V com/mojang/minecraft/particle/Particle/render (Lcom/mojang/minecraft/render/ShapeRenderer;FFFFFF)V
-MD: com/mojang/minecraft/particle/Particle/getParticleTexture ()I com/mojang/minecraft/particle/Particle/getParticleTexture ()I
-MD: com/mojang/minecraft/mob/Sheep$1/update ()V com/mojang/minecraft/mob/Sheep$1/update ()V
 FD: de/jarnbjo/vorbis/f/a de/jarnbjo/vorbis/AudioPacket/modeNumber
 FD: de/jarnbjo/vorbis/f/b de/jarnbjo/vorbis/AudioPacket/mode
 FD: de/jarnbjo/vorbis/f/c de/jarnbjo/vorbis/AudioPacket/mapping
@@ -643,10 +577,6 @@ FD: de/jarnbjo/vorbis/f/s de/jarnbjo/vorbis/AudioPacket/windows
 MD: de/jarnbjo/vorbis/f/b ()[F de/jarnbjo/vorbis/AudioPacket/getComputedWindow ()[F
 MD: de/jarnbjo/vorbis/f/a ()I de/jarnbjo/vorbis/AudioPacket/getNumberOfSamples ()I
 MD: de/jarnbjo/vorbis/f/a (Lde/jarnbjo/vorbis/AudioPacket;[B)V de/jarnbjo/vorbis/AudioPacket/getPcm (Lde/jarnbjo/vorbis/AudioPacket;[B)V
-MD: com/mojang/minecraft/mob/ai/BasicAttackAI/update ()V com/mojang/minecraft/mob/ai/BasicAttackAI/update ()V
-MD: com/mojang/minecraft/mob/ai/BasicAttackAI/doAttack ()V com/mojang/minecraft/mob/ai/BasicAttackAI/doAttack ()V
-MD: com/mojang/minecraft/mob/ai/BasicAttackAI/attack (Lcom/mojang/minecraft/Entity;)Z com/mojang/minecraft/mob/ai/BasicAttackAI/attack (Lcom/mojang/minecraft/Entity;)Z
-MD: com/mojang/minecraft/mob/ai/BasicAttackAI/hurt (Lcom/mojang/minecraft/Entity;I)V com/mojang/minecraft/mob/ai/BasicAttackAI/hurt (Lcom/mojang/minecraft/Entity;I)V
 FD: de/jarnbjo/vorbis/k/e de/jarnbjo/vorbis/Look/map
 FD: de/jarnbjo/vorbis/k/a de/jarnbjo/vorbis/Look/parts
 FD: de/jarnbjo/vorbis/k/f de/jarnbjo/vorbis/Look/fullbooks
@@ -672,13 +602,7 @@ MD: com/mojang/minecraft/e/k/a ([Ljava/lang/String;)V com/mojang/minecraft/gui/S
 MD: com/mojang/minecraft/e/k/a (II)V com/mojang/minecraft/gui/SaveLevelScreen/render (II)V
 MD: com/mojang/minecraft/e/k/a (Ljava/io/File;)V com/mojang/minecraft/gui/SaveLevelScreen/openLevel (Ljava/io/File;)V
 MD: com/mojang/minecraft/e/k/a (I)V com/mojang/minecraft/gui/SaveLevelScreen/openLevel (I)V
-MD: com/mojang/minecraft/mob/ai/BasicAI/tick (Lcom/mojang/minecraft/level/Level;Lcom/mojang/minecraft/mob/Mob;)V com/mojang/minecraft/mob/ai/BasicAI/tick (Lcom/mojang/minecraft/level/Level;Lcom/mojang/minecraft/mob/Mob;)V
-MD: com/mojang/minecraft/mob/ai/BasicAI/jumpFromGround ()V com/mojang/minecraft/mob/ai/BasicAI/jumpFromGround ()V
-MD: com/mojang/minecraft/mob/ai/BasicAI/update ()V com/mojang/minecraft/mob/ai/BasicAI/update ()V
-MD: com/mojang/minecraft/mob/ai/BasicAI/beforeRemove ()V com/mojang/minecraft/mob/ai/BasicAI/beforeRemove ()V
-MD: com/mojang/minecraft/mob/ai/BasicAI/hurt (Lcom/mojang/minecraft/Entity;I)V com/mojang/minecraft/mob/ai/BasicAI/hurt (Lcom/mojang/minecraft/Entity;I)V
 FD: com/mojang/minecraft/level/c/a com/mojang/minecraft/level/LevelObjectInputStream/classes
-MD: com/mojang/minecraft/level/c/readClassDescriptor ()Ljava/io/ObjectStreamClass; com/mojang/minecraft/level/LevelObjectInputStream/readClassDescriptor ()Ljava/io/ObjectStreamClass;
 MD: com/mojang/minecraft/level/tile/f/g ()I com/mojang/minecraft/level/tile/OreBlock/getDrop ()I
 MD: com/mojang/minecraft/level/tile/f/f ()I com/mojang/minecraft/level/tile/OreBlock/getDropCount ()I
 FD: com/mojang/minecraft/e/l/a com/mojang/minecraft/gui/FontRenderer/widthmap
@@ -691,7 +615,6 @@ MD: com/mojang/minecraft/e/l/a (Ljava/lang/String;)I com/mojang/minecraft/gui/Fo
 MD: com/mojang/minecraft/e/l/b (Ljava/lang/String;)Ljava/lang/String; com/mojang/minecraft/gui/FontRenderer/stripColor (Ljava/lang/String;)Ljava/lang/String;
 MD: com/mojang/minecraft/a/f/b (FFFFFF)V com/mojang/minecraft/model/ZombieModel/setRotationAngles (FFFFFF)V
 MD: com/mojang/minecraft/level/tile/n/a (Lcom/mojang/minecraft/level/Level;IIILjava/util/Random;)V com/mojang/minecraft/level/tile/SaplingBlock/update (Lcom/mojang/minecraft/level/Level;IIILjava/util/Random;)V
-MD: com/mojang/minecraft/mob/Creeper/getBrightness (F)F com/mojang/minecraft/mob/Creeper/getBrightness (F)F
 FD: de/jarnbjo/vorbis/g/a de/jarnbjo/vorbis/Floor/DB_STATIC_TABLE
 MD: de/jarnbjo/vorbis/g/a (Lde/jarnbjo/util/io/BitInputStream;Lde/jarnbjo/vorbis/SetupHeader;)Lde/jarnbjo/vorbis/Floor; de/jarnbjo/vorbis/Floor/createInstance (Lde/jarnbjo/util/io/BitInputStream;Lde/jarnbjo/vorbis/SetupHeader;)Lde/jarnbjo/vorbis/Floor;
 MD: de/jarnbjo/vorbis/g/a (Lde/jarnbjo/vorbis/VorbisStream;Lde/jarnbjo/util/io/BitInputStream;)Lde/jarnbjo/vorbis/Floor; de/jarnbjo/vorbis/Floor/decodeFloor (Lde/jarnbjo/vorbis/VorbisStream;Lde/jarnbjo/util/io/BitInputStream;)Lde/jarnbjo/vorbis/Floor;
@@ -737,18 +660,6 @@ FD: com/mojang/minecraft/level/a/a/c/a com/mojang/minecraft/level/generator/nois
 FD: com/mojang/minecraft/level/a/a/c/b com/mojang/minecraft/level/generator/noise/CombinedNoise/noise2
 MD: com/mojang/minecraft/level/a/a/c/a (DD)D com/mojang/minecraft/level/generator/noise/CombinedNoise/compute (DD)D
 FD: com/mojang/minecraft/f/a com/mojang/minecraft/OperatingSystemLookup/lookup
-MD: com/mojang/minecraft/mob/Creeper$1/attack (Lcom/mojang/minecraft/Entity;)Z com/mojang/minecraft/mob/Creeper$1/attack (Lcom/mojang/minecraft/Entity;)Z
-MD: com/mojang/minecraft/mob/Creeper$1/beforeRemove ()V com/mojang/minecraft/mob/Creeper$1/beforeRemove ()V
-MD: com/mojang/minecraft/level/BlockMap/insert (Lcom/mojang/minecraft/Entity;)V com/mojang/minecraft/level/BlockMap/insert (Lcom/mojang/minecraft/Entity;)V
-MD: com/mojang/minecraft/level/BlockMap/remove (Lcom/mojang/minecraft/Entity;)V com/mojang/minecraft/level/BlockMap/remove (Lcom/mojang/minecraft/Entity;)V
-MD: com/mojang/minecraft/level/BlockMap/moved (Lcom/mojang/minecraft/Entity;)V com/mojang/minecraft/level/BlockMap/moved (Lcom/mojang/minecraft/Entity;)V
-MD: com/mojang/minecraft/level/BlockMap/getEntities (Lcom/mojang/minecraft/Entity;FFFFFF)Ljava/util/List; com/mojang/minecraft/level/BlockMap/getEntities (Lcom/mojang/minecraft/Entity;FFFFFF)Ljava/util/List;
-MD: com/mojang/minecraft/level/BlockMap/getEntities (Lcom/mojang/minecraft/Entity;FFFFFFLjava/util/List;)Ljava/util/List; com/mojang/minecraft/level/BlockMap/getEntities (Lcom/mojang/minecraft/Entity;FFFFFFLjava/util/List;)Ljava/util/List;
-MD: com/mojang/minecraft/level/BlockMap/removeAllNonCreativeModeEntities ()V com/mojang/minecraft/level/BlockMap/removeAllNonCreativeModeEntities ()V
-MD: com/mojang/minecraft/level/BlockMap/clear ()V com/mojang/minecraft/level/BlockMap/clear ()V
-MD: com/mojang/minecraft/level/BlockMap/getEntities (Lcom/mojang/minecraft/Entity;Lcom/mojang/minecraft/phys/AABB;)Ljava/util/List; com/mojang/minecraft/level/BlockMap/getEntities (Lcom/mojang/minecraft/Entity;Lcom/mojang/minecraft/phys/AABB;)Ljava/util/List;
-MD: com/mojang/minecraft/level/BlockMap/getEntities (Lcom/mojang/minecraft/Entity;Lcom/mojang/minecraft/phys/AABB;Ljava/util/List;)Ljava/util/List; com/mojang/minecraft/level/BlockMap/getEntities (Lcom/mojang/minecraft/Entity;Lcom/mojang/minecraft/phys/AABB;Ljava/util/List;)Ljava/util/List;
-MD: com/mojang/minecraft/level/BlockMap/tickAll ()V com/mojang/minecraft/level/BlockMap/tickAll ()V
 MD: com/mojang/minecraft/level/BlockMap/render$7127a881 (Lcom/mojang/minecraft/model/Vec3D;Lcom/mojang/minecraft/render/Frustum;Lcom/mojang/minecraft/render/TextureManager;F)V com/mojang/minecraft/level/BlockMap/render (Lcom/mojang/minecraft/model/Vec3D;Lcom/mojang/minecraft/render/Frustum;Lcom/mojang/minecraft/render/TextureManager;F)V
 MD: com/mojang/minecraft/level/BlockMap/access$000 (Lcom/mojang/minecraft/level/BlockMap;)I com/mojang/minecraft/level/BlockMap/getWidth (Lcom/mojang/minecraft/level/BlockMap;)I
 MD: com/mojang/minecraft/level/BlockMap/access$100 (Lcom/mojang/minecraft/level/BlockMap;)I com/mojang/minecraft/level/BlockMap/getDepth (Lcom/mojang/minecraft/level/BlockMap;)I
@@ -757,58 +668,11 @@ FD: com/mojang/minecraft/level/Level/a com/mojang/minecraft/level/Level/renderer
 FD: com/mojang/minecraft/level/Level/b com/mojang/minecraft/level/Level/blockers
 FD: com/mojang/minecraft/level/Level/c com/mojang/minecraft/level/Level/randId
 FD: com/mojang/minecraft/level/Level/d com/mojang/minecraft/level/Level/tickList
-MD: com/mojang/minecraft/level/Level/initTransient ()V com/mojang/minecraft/level/Level/initTransient ()V
-MD: com/mojang/minecraft/level/Level/setData (III[B)V com/mojang/minecraft/level/Level/setData (III[B)V
-MD: com/mojang/minecraft/level/Level/findSpawn ()V com/mojang/minecraft/level/Level/findSpawn ()V
-MD: com/mojang/minecraft/level/Level/calcLightDepths (IIII)V com/mojang/minecraft/level/Level/calcLightDepths (IIII)V
 MD: com/mojang/minecraft/level/Level/addListener$74652038 (Lcom/mojang/minecraft/render/LevelRenderer;)V com/mojang/minecraft/level/Level/addRenderer (Lcom/mojang/minecraft/render/LevelRenderer;)V
-MD: com/mojang/minecraft/level/Level/finalize ()V com/mojang/minecraft/level/Level/finalize ()V
 MD: com/mojang/minecraft/level/Level/removeListener$74652038 (Lcom/mojang/minecraft/render/LevelRenderer;)V com/mojang/minecraft/level/Level/removeRenderer (Lcom/mojang/minecraft/render/LevelRenderer;)V
-MD: com/mojang/minecraft/level/Level/isLightBlocker (III)Z com/mojang/minecraft/level/Level/isLightBlocker (III)Z
-MD: com/mojang/minecraft/level/Level/getCubes (Lcom/mojang/minecraft/phys/AABB;)Ljava/util/ArrayList; com/mojang/minecraft/level/Level/getCubes (Lcom/mojang/minecraft/phys/AABB;)Ljava/util/ArrayList;
-MD: com/mojang/minecraft/level/Level/swap (IIIIII)V com/mojang/minecraft/level/Level/swap (IIIIII)V
-MD: com/mojang/minecraft/level/Level/setTileNoNeighborChange (IIII)Z com/mojang/minecraft/level/Level/setTileNoNeighborChange (IIII)Z
-MD: com/mojang/minecraft/level/Level/netSetTileNoNeighborChange (IIII)Z com/mojang/minecraft/level/Level/netSetTileNoNeighborChange (IIII)Z
-MD: com/mojang/minecraft/level/Level/setTile (IIII)Z com/mojang/minecraft/level/Level/setTile (IIII)Z
-MD: com/mojang/minecraft/level/Level/netSetTile (IIII)Z com/mojang/minecraft/level/Level/netSetTile (IIII)Z
-MD: com/mojang/minecraft/level/Level/updateNeighborsAt (IIII)V com/mojang/minecraft/level/Level/updateNeighborsAt (IIII)V
-MD: com/mojang/minecraft/level/Level/setTileNoUpdate (IIII)Z com/mojang/minecraft/level/Level/setTileNoUpdate (IIII)Z
 MD: com/mojang/minecraft/level/Level/a (IIII)V com/mojang/minecraft/level/Level/updateTile (IIII)V
-MD: com/mojang/minecraft/level/Level/isLit (III)Z com/mojang/minecraft/level/Level/isLit (III)Z
-MD: com/mojang/minecraft/level/Level/getTile (III)I com/mojang/minecraft/level/Level/getTile (III)I
-MD: com/mojang/minecraft/level/Level/isSolidTile (III)Z com/mojang/minecraft/level/Level/isSolidTile (III)Z
-MD: com/mojang/minecraft/level/Level/tickEntities ()V com/mojang/minecraft/level/Level/tickEntities ()V
-MD: com/mojang/minecraft/level/Level/tick ()V com/mojang/minecraft/level/Level/tick ()V
-MD: com/mojang/minecraft/level/Level/countInstanceOf (Ljava/lang/Class;)I com/mojang/minecraft/level/Level/countInstanceOf (Ljava/lang/Class;)I
 MD: com/mojang/minecraft/level/Level/a (III)Z com/mojang/minecraft/level/Level/isInBounds (III)Z
-MD: com/mojang/minecraft/level/Level/getGroundLevel ()F com/mojang/minecraft/level/Level/getGroundLevel ()F
-MD: com/mojang/minecraft/level/Level/getWaterLevel ()F com/mojang/minecraft/level/Level/getWaterLevel ()F
-MD: com/mojang/minecraft/level/Level/containsAnyLiquid (Lcom/mojang/minecraft/phys/AABB;)Z com/mojang/minecraft/level/Level/containsAnyLiquid (Lcom/mojang/minecraft/phys/AABB;)Z
-MD: com/mojang/minecraft/level/Level/containsLiquid (Lcom/mojang/minecraft/phys/AABB;Lcom/mojang/minecraft/level/liquid/LiquidType;)Z com/mojang/minecraft/level/Level/containsLiquid (Lcom/mojang/minecraft/phys/AABB;Lcom/mojang/minecraft/level/liquid/LiquidType;)Z
-MD: com/mojang/minecraft/level/Level/addToTickNextTick (IIII)V com/mojang/minecraft/level/Level/addToTickNextTick (IIII)V
-MD: com/mojang/minecraft/level/Level/isFree (Lcom/mojang/minecraft/phys/AABB;)Z com/mojang/minecraft/level/Level/isFree (Lcom/mojang/minecraft/phys/AABB;)Z
-MD: com/mojang/minecraft/level/Level/findEntities (Lcom/mojang/minecraft/Entity;Lcom/mojang/minecraft/phys/AABB;)Ljava/util/List; com/mojang/minecraft/level/Level/findEntities (Lcom/mojang/minecraft/Entity;Lcom/mojang/minecraft/phys/AABB;)Ljava/util/List;
-MD: com/mojang/minecraft/level/Level/isSolid (FFFF)Z com/mojang/minecraft/level/Level/isSolid (FFFF)Z
 MD: com/mojang/minecraft/level/Level/a (FFF)Z com/mojang/minecraft/level/Level/isSolid (FFF)Z
-MD: com/mojang/minecraft/level/Level/getHighestTile (II)I com/mojang/minecraft/level/Level/getHighestTile (II)I
-MD: com/mojang/minecraft/level/Level/setSpawnPos (IIIF)V com/mojang/minecraft/level/Level/setSpawnPos (IIIF)V
-MD: com/mojang/minecraft/level/Level/getBrightness (III)F com/mojang/minecraft/level/Level/getBrightness (III)F
-MD: com/mojang/minecraft/level/Level/getCaveness (FFFF)F com/mojang/minecraft/level/Level/getCaveness (FFFF)F
-MD: com/mojang/minecraft/level/Level/getCaveness (Lcom/mojang/minecraft/Entity;)F com/mojang/minecraft/level/Level/getCaveness (Lcom/mojang/minecraft/Entity;)F
-MD: com/mojang/minecraft/level/Level/copyBlocks ()[B com/mojang/minecraft/level/Level/copyBlocks ()[B
-MD: com/mojang/minecraft/level/Level/getLiquid (III)Lcom/mojang/minecraft/level/liquid/LiquidType; com/mojang/minecraft/level/Level/getLiquid (III)Lcom/mojang/minecraft/level/liquid/LiquidType;
-MD: com/mojang/minecraft/level/Level/isWater (III)Z com/mojang/minecraft/level/Level/isWater (III)Z
-MD: com/mojang/minecraft/level/Level/setNetworkMode (Z)V com/mojang/minecraft/level/Level/setNetworkMode (Z)V
-MD: com/mojang/minecraft/level/Level/clip (Lcom/mojang/minecraft/model/Vec3D;Lcom/mojang/minecraft/model/Vec3D;)Lcom/mojang/minecraft/MovingObjectPosition; com/mojang/minecraft/level/Level/clip (Lcom/mojang/minecraft/model/Vec3D;Lcom/mojang/minecraft/model/Vec3D;)Lcom/mojang/minecraft/MovingObjectPosition;
-MD: com/mojang/minecraft/level/Level/playSound (Ljava/lang/String;Lcom/mojang/minecraft/Entity;FF)V com/mojang/minecraft/level/Level/playSound (Ljava/lang/String;Lcom/mojang/minecraft/Entity;FF)V
-MD: com/mojang/minecraft/level/Level/playSound (Ljava/lang/String;FFFFF)V com/mojang/minecraft/level/Level/playSound (Ljava/lang/String;FFFFF)V
-MD: com/mojang/minecraft/level/Level/maybeGrowTree (III)Z com/mojang/minecraft/level/Level/maybeGrowTree (III)Z
-MD: com/mojang/minecraft/level/Level/getPlayer ()Lcom/mojang/minecraft/Entity; com/mojang/minecraft/level/Level/getPlayer ()Lcom/mojang/minecraft/Entity;
-MD: com/mojang/minecraft/level/Level/addEntity (Lcom/mojang/minecraft/Entity;)V com/mojang/minecraft/level/Level/addEntity (Lcom/mojang/minecraft/Entity;)V
-MD: com/mojang/minecraft/level/Level/removeEntity (Lcom/mojang/minecraft/Entity;)V com/mojang/minecraft/level/Level/removeEntity (Lcom/mojang/minecraft/Entity;)V
-MD: com/mojang/minecraft/level/Level/explode (Lcom/mojang/minecraft/Entity;FFFF)V com/mojang/minecraft/level/Level/explode (Lcom/mojang/minecraft/Entity;FFFF)V
-MD: com/mojang/minecraft/level/Level/findSubclassOf (Ljava/lang/Class;)Lcom/mojang/minecraft/Entity; com/mojang/minecraft/level/Level/findSubclassOf (Ljava/lang/Class;)Lcom/mojang/minecraft/Entity;
-MD: com/mojang/minecraft/level/Level/removeAllNonCreativeModeEntities ()V com/mojang/minecraft/level/Level/removeAllNonCreativeModeEntities ()V
 MD: com/mojang/minecraft/level/tile/g/f ()I com/mojang/minecraft/level/tile/LeavesBlock/getDropCount ()I
 MD: com/mojang/minecraft/level/tile/g/g ()I com/mojang/minecraft/level/tile/LeavesBlock/getDrop ()I
 MD: com/mojang/minecraft/e/r/a ()V com/mojang/minecraft/gui/GameOverScreen/onOpen ()V
@@ -845,30 +709,11 @@ MD: de/jarnbjo/vorbis/i/e ()[I de/jarnbjo/vorbis/Mapping/getSubmapResidues ()[I
 MD: de/jarnbjo/vorbis/i/f ()I de/jarnbjo/vorbis/Mapping/getCouplingSteps ()I
 MD: de/jarnbjo/vorbis/i/g ()I de/jarnbjo/vorbis/Mapping/getSubmaps ()I
 FD: com/mojang/minecraft/net/NetworkPlayer/a com/mojang/minecraft/net/NetworkPlayer/newTextureId
-MD: com/mojang/minecraft/net/NetworkPlayer/aiStep ()V com/mojang/minecraft/net/NetworkPlayer/aiStep ()V
 MD: com/mojang/minecraft/net/NetworkPlayer/bindTexture$4211e026 (Lcom/mojang/minecraft/render/TextureManager;)V com/mojang/minecraft/net/NetworkPlayer/bindTexture (Lcom/mojang/minecraft/render/TextureManager;)V
-MD: com/mojang/minecraft/net/NetworkPlayer/renderHover (Lcom/mojang/minecraft/render/TextureManager;F)V com/mojang/minecraft/net/NetworkPlayer/renderHover (Lcom/mojang/minecraft/render/TextureManager;F)V
-MD: com/mojang/minecraft/net/NetworkPlayer/queue (BBBFF)V com/mojang/minecraft/net/NetworkPlayer/queue (BBBFF)V
-MD: com/mojang/minecraft/net/NetworkPlayer/teleport (SSSFF)V com/mojang/minecraft/net/NetworkPlayer/teleport (SSSFF)V
-MD: com/mojang/minecraft/net/NetworkPlayer/queue (BBB)V com/mojang/minecraft/net/NetworkPlayer/queue (BBB)V
-MD: com/mojang/minecraft/net/NetworkPlayer/queue (FF)V com/mojang/minecraft/net/NetworkPlayer/queue (FF)V
-MD: com/mojang/minecraft/net/NetworkPlayer/clear ()V com/mojang/minecraft/net/NetworkPlayer/clear ()V
-MD: com/mojang/minecraft/level/BlockMap$Slot/init (FFF)Lcom/mojang/minecraft/level/BlockMap$Slot; com/mojang/minecraft/level/BlockMap$Slot/init (FFF)Lcom/mojang/minecraft/level/BlockMap$Slot;
-MD: com/mojang/minecraft/level/BlockMap$Slot/add (Lcom/mojang/minecraft/Entity;)V com/mojang/minecraft/level/BlockMap$Slot/add (Lcom/mojang/minecraft/Entity;)V
-MD: com/mojang/minecraft/level/BlockMap$Slot/remove (Lcom/mojang/minecraft/Entity;)V com/mojang/minecraft/level/BlockMap$Slot/remove (Lcom/mojang/minecraft/Entity;)V
 MD: com/mojang/minecraft/level/BlockMap$Slot/access$400 (Lcom/mojang/minecraft/level/BlockMap$Slot;)I com/mojang/minecraft/level/BlockMap$Slot/getXSlot (Lcom/mojang/minecraft/level/BlockMap$Slot;)I
 MD: com/mojang/minecraft/level/BlockMap$Slot/access$500 (Lcom/mojang/minecraft/level/BlockMap$Slot;)I com/mojang/minecraft/level/BlockMap$Slot/getYSlot (Lcom/mojang/minecraft/level/BlockMap$Slot;)I
 MD: com/mojang/minecraft/level/BlockMap$Slot/access$600 (Lcom/mojang/minecraft/level/BlockMap$Slot;)I com/mojang/minecraft/level/BlockMap$Slot/getZSlot (Lcom/mojang/minecraft/level/BlockMap$Slot;)I
 FD: com/mojang/minecraft/e/p/a com/mojang/minecraft/gui/LevelDialog/screen
-MD: com/mojang/minecraft/e/p/run ()V com/mojang/minecraft/gui/LevelDialog/run ()V
-MD: com/mojang/minecraft/level/tile/Tile$SoundType/values ()[Lcom/mojang/minecraft/level/tile/Tile$SoundType; com/mojang/minecraft/level/tile/Tile$SoundType/values ()[Lcom/mojang/minecraft/level/tile/Tile$SoundType;
-MD: com/mojang/minecraft/level/tile/Tile$SoundType/valueOf (Ljava/lang/String;)Lcom/mojang/minecraft/level/tile/Tile$SoundType; com/mojang/minecraft/level/tile/Tile$SoundType/valueOf (Ljava/lang/String;)Lcom/mojang/minecraft/level/tile/Tile$SoundType;
-MD: com/mojang/minecraft/level/tile/Tile$SoundType/getVolume ()F com/mojang/minecraft/level/tile/Tile$SoundType/getVolume ()F
-MD: com/mojang/minecraft/level/tile/Tile$SoundType/getPitch ()F com/mojang/minecraft/level/tile/Tile$SoundType/getPitch ()F
-MD: com/mojang/minecraft/item/PrimedTnt/hurt (Lcom/mojang/minecraft/Entity;I)V com/mojang/minecraft/item/PrimedTnt/hurt (Lcom/mojang/minecraft/Entity;I)V
-MD: com/mojang/minecraft/item/PrimedTnt/isPickable ()Z com/mojang/minecraft/item/PrimedTnt/isPickable ()Z
-MD: com/mojang/minecraft/item/PrimedTnt/tick ()V com/mojang/minecraft/item/PrimedTnt/tick ()V
-MD: com/mojang/minecraft/item/PrimedTnt/playerTouch (Lcom/mojang/minecraft/Entity;)V com/mojang/minecraft/item/PrimedTnt/playerTouch (Lcom/mojang/minecraft/Entity;)V
 MD: com/mojang/minecraft/item/PrimedTnt/render$2a8c5a (Lcom/mojang/minecraft/render/TextureManager;F)V com/mojang/minecraft/item/PrimedTnt/render (Lcom/mojang/minecraft/render/TextureManager;F)V
 FD: de/jarnbjo/vorbis/j/a de/jarnbjo/vorbis/Mode/blockFlag
 FD: de/jarnbjo/vorbis/j/c de/jarnbjo/vorbis/Mode/windowType
@@ -885,9 +730,7 @@ FD: de/jarnbjo/ogg/b/a de/jarnbjo/ogg/OnDemandUrlStream/logicalStreams
 FD: de/jarnbjo/ogg/b/e de/jarnbjo/ogg/OnDemandUrlStream/firstPage
 MD: de/jarnbjo/ogg/b/a ()Lde/jarnbjo/ogg/OggPage; de/jarnbjo/ogg/OnDemandUrlStream/getOggPage ()Lde/jarnbjo/ogg/OggPage;
 FD: com/mojang/minecraft/c/l/a com/mojang/minecraft/sound/MusicPlayThread/music
-MD: com/mojang/minecraft/c/l/run ()V com/mojang/minecraft/sound/MusicPlayThread/run ()V
 FD: com/mojang/minecraft/net/d/a com/mojang/minecraft/net/SkinDownloadThread/player
-MD: com/mojang/minecraft/net/d/run ()V com/mojang/minecraft/net/SkinDownloadThread/run ()V
 MD: com/mojang/minecraft/level/tile/q/b (I)I com/mojang/minecraft/level/tile/GrassBlock/getTextureId (I)I
 MD: com/mojang/minecraft/level/tile/q/a (Lcom/mojang/minecraft/level/Level;IIILjava/util/Random;)V com/mojang/minecraft/level/tile/GrassBlock/update (Lcom/mojang/minecraft/level/Level;IIILjava/util/Random;)V
 MD: com/mojang/minecraft/level/tile/q/g ()I com/mojang/minecraft/level/tile/GrassBlock/getDrop ()I
@@ -914,7 +757,6 @@ MD: com/mojang/minecraft/level/tile/r/b (Lcom/mojang/minecraft/render/ShapeRende
 MD: com/mojang/minecraft/level/tile/r/a ()Z com/mojang/minecraft/level/tile/FlowerBlock/isCube ()Z
 MD: com/mojang/minecraft/level/tile/r/a (Lcom/mojang/minecraft/level/Level;IIILcom/mojang/minecraft/render/ShapeRenderer;)Z com/mojang/minecraft/level/tile/FlowerBlock/render (Lcom/mojang/minecraft/level/Level;IIILcom/mojang/minecraft/render/ShapeRenderer;)Z
 MD: com/mojang/minecraft/level/tile/r/a (Lcom/mojang/minecraft/render/ShapeRenderer;)V com/mojang/minecraft/level/tile/FlowerBlock/renderFullbright (Lcom/mojang/minecraft/render/ShapeRenderer;)V
-MD: com/mojang/minecraft/item/TakeEntityAnim/tick ()V com/mojang/minecraft/item/TakeEntityAnim/tick ()V
 MD: com/mojang/minecraft/item/TakeEntityAnim/render$2a8c5a (Lcom/mojang/minecraft/render/TextureManager;F)V com/mojang/minecraft/item/TakeEntityAnim/render (Lcom/mojang/minecraft/render/TextureManager;F)V
 FD: com/mojang/minecraft/a/l/a com/mojang/minecraft/model/Vertex/vector
 FD: com/mojang/minecraft/a/l/b com/mojang/minecraft/model/Vertex/u
@@ -963,10 +805,7 @@ FD: com/mojang/minecraft/level/b/a/a com/mojang/minecraft/level/liquid/LiquidTyp
 FD: com/mojang/minecraft/level/b/a/b com/mojang/minecraft/level/liquid/LiquidType/WATER
 FD: com/mojang/minecraft/level/b/a/c com/mojang/minecraft/level/liquid/LiquidType/LAVA
 FD: com/mojang/minecraft/item/Item/a com/mojang/minecraft/item/Item/models
-MD: com/mojang/minecraft/item/Item/initModels ()V com/mojang/minecraft/item/Item/initModels ()V
-MD: com/mojang/minecraft/item/Item/tick ()V com/mojang/minecraft/item/Item/tick ()V
 MD: com/mojang/minecraft/item/Item/render$2a8c5a (Lcom/mojang/minecraft/render/TextureManager;F)V com/mojang/minecraft/item/Item/render (Lcom/mojang/minecraft/render/TextureManager;F)V
-MD: com/mojang/minecraft/item/Item/playerTouch (Lcom/mojang/minecraft/Entity;)V com/mojang/minecraft/item/Item/playerTouch (Lcom/mojang/minecraft/Entity;)V
 FD: com/mojang/minecraft/b/h/a com/mojang/minecraft/render/HeldBlock/minecraft
 FD: com/mojang/minecraft/b/h/b com/mojang/minecraft/render/HeldBlock/block
 FD: com/mojang/minecraft/b/h/c com/mojang/minecraft/render/HeldBlock/pos
@@ -1129,7 +968,6 @@ FD: com/mojang/minecraft/c/b/a com/mojang/minecraft/sound/SoundData/data
 FD: com/mojang/minecraft/c/b/b com/mojang/minecraft/sound/SoundData/length
 MD: de/jarnbjo/vorbis/o/a (Lde/jarnbjo/vorbis/VorbisStream;Lde/jarnbjo/util/io/BitInputStream;Lde/jarnbjo/vorbis/Mode;[Z[[F)V de/jarnbjo/vorbis/Residue0/decodeResidue (Lde/jarnbjo/vorbis/VorbisStream;Lde/jarnbjo/util/io/BitInputStream;Lde/jarnbjo/vorbis/Mode;[Z[[F)V
 MD: de/jarnbjo/vorbis/p/a (Lde/jarnbjo/vorbis/VorbisStream;Lde/jarnbjo/util/io/BitInputStream;Lde/jarnbjo/vorbis/Mode;[Z[[F)V de/jarnbjo/vorbis/Residue2/decodeResidue (Lde/jarnbjo/vorbis/VorbisStream;Lde/jarnbjo/util/io/BitInputStream;Lde/jarnbjo/vorbis/Mode;[Z[[F)V
-MD: de/jarnbjo/vorbis/p/clone ()Ljava/lang/Object; de/jarnbjo/vorbis/Residue2/clone ()Ljava/lang/Object;
 FD: com/mojang/minecraft/l/a com/mojang/minecraft/Minecraft/gamemode
 FD: com/mojang/minecraft/l/I com/mojang/minecraft/Minecraft/fullscreen
 FD: com/mojang/minecraft/l/b com/mojang/minecraft/Minecraft/width
@@ -1175,7 +1013,6 @@ FD: com/mojang/minecraft/l/H com/mojang/minecraft/Minecraft/raining
 MD: com/mojang/minecraft/l/a (Lcom/mojang/minecraft/gui/GuiScreen;)V com/mojang/minecraft/Minecraft/setCurrentScreen (Lcom/mojang/minecraft/gui/GuiScreen;)V
 MD: com/mojang/minecraft/l/a (Ljava/lang/String;)V com/mojang/minecraft/Minecraft/checkGLError (Ljava/lang/String;)V
 MD: com/mojang/minecraft/l/a ()V com/mojang/minecraft/Minecraft/shutdown ()V
-MD: com/mojang/minecraft/l/run ()V com/mojang/minecraft/Minecraft/run ()V
 MD: com/mojang/minecraft/l/b ()V com/mojang/minecraft/Minecraft/grabMouse ()V
 MD: com/mojang/minecraft/l/c ()V com/mojang/minecraft/Minecraft/pause ()V
 MD: com/mojang/minecraft/l/b (I)V com/mojang/minecraft/Minecraft/onMouseClick (I)V
@@ -1192,20 +1029,9 @@ FD: de/jarnbjo/vorbis/q/b de/jarnbjo/vorbis/SetupHeader/floors
 FD: de/jarnbjo/vorbis/q/c de/jarnbjo/vorbis/SetupHeader/residues
 FD: de/jarnbjo/vorbis/q/d de/jarnbjo/vorbis/SetupHeader/mappings
 FD: de/jarnbjo/vorbis/q/e de/jarnbjo/vorbis/SetupHeader/modes
-MD: com/mojang/minecraft/mob/Mob/isPickable ()Z com/mojang/minecraft/mob/Mob/isPickable ()Z
-MD: com/mojang/minecraft/mob/Mob/isPushable ()Z com/mojang/minecraft/mob/Mob/isPushable ()Z
-MD: com/mojang/minecraft/mob/Mob/tick ()V com/mojang/minecraft/mob/Mob/tick ()V
-MD: com/mojang/minecraft/mob/Mob/aiStep ()V com/mojang/minecraft/mob/Mob/aiStep ()V
 MD: com/mojang/minecraft/mob/Mob/bindTexture$4211e026 (Lcom/mojang/minecraft/render/TextureManager;)V com/mojang/minecraft/mob/Mob/bindTexture (Lcom/mojang/minecraft/render/TextureManager;)V
 MD: com/mojang/minecraft/mob/Mob/render$2a8c5a (Lcom/mojang/minecraft/render/TextureManager;F)V com/mojang/minecraft/mob/Mob/render (Lcom/mojang/minecraft/render/TextureManager;F)V
 MD: com/mojang/minecraft/mob/Mob/renderModel$f1c6c5a (Lcom/mojang/minecraft/render/TextureManager;FFFFFF)V com/mojang/minecraft/mob/Mob/renderModel (Lcom/mojang/minecraft/render/TextureManager;FFFFFF)V
-MD: com/mojang/minecraft/mob/Mob/heal (I)V com/mojang/minecraft/mob/Mob/heal (I)V
-MD: com/mojang/minecraft/mob/Mob/hurt (Lcom/mojang/minecraft/Entity;I)V com/mojang/minecraft/mob/Mob/hurt (Lcom/mojang/minecraft/Entity;I)V
-MD: com/mojang/minecraft/mob/Mob/knockback (Lcom/mojang/minecraft/Entity;IFF)V com/mojang/minecraft/mob/Mob/knockback (Lcom/mojang/minecraft/Entity;IFF)V
-MD: com/mojang/minecraft/mob/Mob/die (Lcom/mojang/minecraft/Entity;)V com/mojang/minecraft/mob/Mob/die (Lcom/mojang/minecraft/Entity;)V
-MD: com/mojang/minecraft/mob/Mob/causeFallDamage (F)V com/mojang/minecraft/mob/Mob/causeFallDamage (F)V
-MD: com/mojang/minecraft/mob/Mob/travel (FF)V com/mojang/minecraft/mob/Mob/travel (FF)V
-MD: com/mojang/minecraft/mob/Mob/isShootable ()Z com/mojang/minecraft/mob/Mob/isShootable ()Z
 FD: de/jarnbjo/a/a/b/d de/jarnbjo/util/io/HuffmanNode/depth
 FD: de/jarnbjo/a/a/b/a de/jarnbjo/util/io/HuffmanNode/o0
 FD: de/jarnbjo/a/a/b/b de/jarnbjo/util/io/HuffmanNode/o1
@@ -1234,7 +1060,6 @@ MD: com/mojang/minecraft/level/tile/i/a (Lcom/mojang/minecraft/level/Level;IIIF)
 MD: com/mojang/minecraft/level/tile/i/e (Lcom/mojang/minecraft/level/Level;III)V com/mojang/minecraft/level/tile/LiquidBlock/onBreak (Lcom/mojang/minecraft/level/Level;III)V
 MD: com/mojang/minecraft/level/tile/i/f ()I com/mojang/minecraft/level/tile/LiquidBlock/getDropCount ()I
 MD: com/mojang/minecraft/level/tile/i/j ()I com/mojang/minecraft/level/tile/LiquidBlock/getRenderPass ()I
-MD: com/mojang/minecraft/mob/Pig/die (Lcom/mojang/minecraft/Entity;)V com/mojang/minecraft/mob/Pig/die (Lcom/mojang/minecraft/Entity;)V
 FD: com/mojang/minecraft/net/a/a com/mojang/minecraft/net/PacketType/packets
 FD: com/mojang/minecraft/net/a/b com/mojang/minecraft/net/PacketType/IDENTIFICATION
 FD: com/mojang/minecraft/net/a/c com/mojang/minecraft/net/PacketType/LEVEL_INIT
@@ -1256,7 +1081,6 @@ FD: com/mojang/minecraft/net/a/t com/mojang/minecraft/net/PacketType/nextOpcode
 FD: com/mojang/minecraft/net/a/r com/mojang/minecraft/net/PacketType/opcode
 FD: com/mojang/minecraft/net/a/s com/mojang/minecraft/net/PacketType/params
 MD: com/mojang/minecraft/particle/SmokeParticle/render$12562f50 (Lcom/mojang/minecraft/render/ShapeRenderer;FFFFFF)V com/mojang/minecraft/particle/SmokeParticle/render (Lcom/mojang/minecraft/render/ShapeRenderer;FFFFFF)V
-MD: com/mojang/minecraft/particle/SmokeParticle/tick ()V com/mojang/minecraft/particle/SmokeParticle/tick ()V
 FD: de/jarnbjo/vorbis/r/a de/jarnbjo/vorbis/IdentificationHeader/channels
 FD: de/jarnbjo/vorbis/r/b de/jarnbjo/vorbis/IdentificationHeader/samplerate
 FD: de/jarnbjo/vorbis/r/c de/jarnbjo/vorbis/IdentificationHeader/blockSize0
@@ -1292,7 +1116,6 @@ FD: com/mojang/minecraft/g/d com/mojang/minecraft/MovingObjectPosition/z
 FD: com/mojang/minecraft/g/e com/mojang/minecraft/MovingObjectPosition/face
 FD: com/mojang/minecraft/g/f com/mojang/minecraft/MovingObjectPosition/vec
 FD: com/mojang/minecraft/g/g com/mojang/minecraft/MovingObjectPosition/entity
-MD: com/mojang/minecraft/mob/Skeleton/shootArrow (Lcom/mojang/minecraft/level/Level;)V com/mojang/minecraft/mob/Skeleton/shootArrow (Lcom/mojang/minecraft/level/Level;)V
 MD: com/mojang/minecraft/mob/Skeleton/access$000 (Lcom/mojang/minecraft/mob/Skeleton;)V com/mojang/minecraft/mob/Skeleton/shootRandomArrow (Lcom/mojang/minecraft/mob/Skeleton;)V
 FD: com/mojang/minecraft/player/b/d com/mojang/minecraft/player/InputHandlerImpl/keyStates
 FD: com/mojang/minecraft/player/b/e com/mojang/minecraft/player/InputHandlerImpl/settings
@@ -1320,7 +1143,6 @@ FD: com/mojang/minecraft/a/m/j com/mojang/minecraft/model/SpiderModel/leg6
 FD: com/mojang/minecraft/a/m/k com/mojang/minecraft/model/SpiderModel/leg7
 FD: com/mojang/minecraft/a/m/l com/mojang/minecraft/model/SpiderModel/leg8
 MD: com/mojang/minecraft/a/m/a (FFFFFF)V com/mojang/minecraft/model/SpiderModel/render (FFFFFF)V
-MD: com/mojang/minecraft/e/run ()V com/mojang/minecraft/SleepForeverThread/run ()V
 FD: com/mojang/minecraft/b/j/d com/mojang/minecraft/render/Chunk/level
 FD: com/mojang/minecraft/b/j/e com/mojang/minecraft/render/Chunk/baseListId
 FD: com/mojang/minecraft/b/j/f com/mojang/minecraft/render/Chunk/renderer
@@ -1341,7 +1163,6 @@ MD: com/mojang/minecraft/b/j/b ()V com/mojang/minecraft/render/Chunk/dispose ()V
 MD: com/mojang/minecraft/b/j/a ([III)I com/mojang/minecraft/render/Chunk/appendLists ([III)I
 MD: com/mojang/minecraft/b/j/a (Lcom/mojang/minecraft/render/Frustum;)V com/mojang/minecraft/render/Chunk/clip (Lcom/mojang/minecraft/render/Frustum;)V
 FD: com/mojang/minecraft/level/a/a/d/a com/mojang/minecraft/level/generator/noise/PerlinNoise/noise
-MD: com/mojang/minecraft/level/a/a/d/a (D)D com/mojang/minecraft/level/generator/noise/PerlinNoise/a (D)D
 MD: com/mojang/minecraft/level/a/a/d/a (DDD)D com/mojang/minecraft/level/generator/noise/PerlinNoise/lerp (DDD)D
 MD: com/mojang/minecraft/level/a/a/d/a (IDDD)D com/mojang/minecraft/level/generator/noise/PerlinNoise/grad (IDDD)D
 MD: com/mojang/minecraft/level/a/a/d/a (DD)D com/mojang/minecraft/level/generator/noise/PerlinNoise/compute (DD)D
@@ -1365,17 +1186,7 @@ MD: com/mojang/minecraft/e/b/c ()V com/mojang/minecraft/gui/ChatInputScreen/tick
 MD: com/mojang/minecraft/e/b/a (CI)V com/mojang/minecraft/gui/ChatInputScreen/onKeyPress (CI)V
 MD: com/mojang/minecraft/e/b/a (II)V com/mojang/minecraft/gui/ChatInputScreen/render (II)V
 MD: com/mojang/minecraft/e/b/a (III)V com/mojang/minecraft/gui/ChatInputScreen/onMouseClick (III)V
-MD: com/mojang/minecraft/Minecraft$OS/values ()[Lcom/mojang/minecraft/Minecraft$OS; com/mojang/minecraft/Minecraft$OS/values ()[Lcom/mojang/minecraft/Minecraft$OS;
-MD: com/mojang/minecraft/Minecraft$OS/valueOf (Ljava/lang/String;)Lcom/mojang/minecraft/Minecraft$OS; com/mojang/minecraft/Minecraft$OS/valueOf (Ljava/lang/String;)Lcom/mojang/minecraft/Minecraft$OS;
-MD: com/mojang/minecraft/player/Inventory/getSelected ()I com/mojang/minecraft/player/Inventory/getSelected ()I
 MD: com/mojang/minecraft/player/Inventory/a (I)I com/mojang/minecraft/player/Inventory/getSlot (I)I
-MD: com/mojang/minecraft/player/Inventory/grabTexture (IZ)V com/mojang/minecraft/player/Inventory/grabTexture (IZ)V
-MD: com/mojang/minecraft/player/Inventory/swapPaint (I)V com/mojang/minecraft/player/Inventory/swapPaint (I)V
-MD: com/mojang/minecraft/player/Inventory/replaceSlot (I)V com/mojang/minecraft/player/Inventory/replaceSlot (I)V
-MD: com/mojang/minecraft/player/Inventory/replaceSlot (Lcom/mojang/minecraft/level/tile/Block;)V com/mojang/minecraft/player/Inventory/replaceSlot (Lcom/mojang/minecraft/level/tile/Block;)V
-MD: com/mojang/minecraft/player/Inventory/addResource (I)Z com/mojang/minecraft/player/Inventory/addResource (I)Z
-MD: com/mojang/minecraft/player/Inventory/tick ()V com/mojang/minecraft/player/Inventory/tick ()V
-MD: com/mojang/minecraft/player/Inventory/removeResource (I)Z com/mojang/minecraft/player/Inventory/removeResource (I)Z
 FD: com/mojang/minecraft/b/a com/mojang/minecraft/ChatLine/message
 FD: com/mojang/minecraft/b/b com/mojang/minecraft/ChatLine/time
 FD: com/mojang/minecraftui/LevelNameScreen/g com/mojang/minecraftui/LevelNameScreen/parent
@@ -1389,46 +1200,7 @@ MD: com/mojang/minecraft/e/a/c ()V com/mojang/minecraft/gui/LevelNameScreen/tick
 MD: com/mojang/minecraft/e/a/a (Lcom/mojang/minecraft/gui/Button;)V com/mojang/minecraft/gui/LevelNameScreen/onButtonClick (Lcom/mojang/minecraft/gui/Button;)V
 MD: com/mojang/minecraft/e/a/a (CI)V com/mojang/minecraft/gui/LevelNameScreen/onKeyPress (CI)V
 MD: com/mojang/minecraft/e/a/a (II)V com/mojang/minecraft/gui/LevelNameScreen/render (II)V
-MD: com/mojang/minecraft/Entity/resetPos ()V com/mojang/minecraft/Entity/resetPos ()V
-MD: com/mojang/minecraft/Entity/remove ()V com/mojang/minecraft/Entity/remove ()V
-MD: com/mojang/minecraft/Entity/setSize (FF)V com/mojang/minecraft/Entity/setSize (FF)V
-MD: com/mojang/minecraft/Entity/setPos (Lcom/mojang/minecraft/net/PositionUpdate;)V com/mojang/minecraft/Entity/setPos (Lcom/mojang/minecraft/net/PositionUpdate;)V
-MD: com/mojang/minecraft/Entity/setRot (FF)V com/mojang/minecraft/Entity/setRot (FF)V
-MD: com/mojang/minecraft/Entity/setPos (FFF)V com/mojang/minecraft/Entity/setPos (FFF)V
-MD: com/mojang/minecraft/Entity/turn (FF)V com/mojang/minecraft/Entity/turn (FF)V
-MD: com/mojang/minecraft/Entity/interpolateTurn (FF)V com/mojang/minecraft/Entity/interpolateTurn (FF)V
-MD: com/mojang/minecraft/Entity/tick ()V com/mojang/minecraft/Entity/tick ()V
-MD: com/mojang/minecraft/Entity/isFree (FFFF)Z com/mojang/minecraft/Entity/isFree (FFFF)Z
-MD: com/mojang/minecraft/Entity/isFree (FFF)Z com/mojang/minecraft/Entity/isFree (FFF)Z
-MD: com/mojang/minecraft/Entity/move (FFF)V com/mojang/minecraft/Entity/move (FFF)V
-MD: com/mojang/minecraft/Entity/causeFallDamage (F)V com/mojang/minecraft/Entity/causeFallDamage (F)V
-MD: com/mojang/minecraft/Entity/isInWater ()Z com/mojang/minecraft/Entity/isInWater ()Z
-MD: com/mojang/minecraft/Entity/isUnderWater ()Z com/mojang/minecraft/Entity/isUnderWater ()Z
-MD: com/mojang/minecraft/Entity/isInLava ()Z com/mojang/minecraft/Entity/isInLava ()Z
-MD: com/mojang/minecraft/Entity/moveRelative (FFF)V com/mojang/minecraft/Entity/moveRelative (FFF)V
-MD: com/mojang/minecraft/Entity/isLit ()Z com/mojang/minecraft/Entity/isLit ()Z
-MD: com/mojang/minecraft/Entity/getBrightness (F)F com/mojang/minecraft/Entity/getBrightness (F)F
 MD: com/mojang/minecraft/Entity/render$2a8c5a (Lcom/mojang/minecraft/render/TextureManager;F)V com/mojang/minecraft/Entity/render (Lcom/mojang/minecraft/render/TextureManager;F)V
-MD: com/mojang/minecraft/Entity/setLevel (Lcom/mojang/minecraft/level/Level;)V com/mojang/minecraft/Entity/setLevel (Lcom/mojang/minecraft/level/Level;)V
-MD: com/mojang/minecraft/Entity/playSound (Ljava/lang/String;FF)V com/mojang/minecraft/Entity/playSound (Ljava/lang/String;FF)V
-MD: com/mojang/minecraft/Entity/moveTo (FFFFF)V com/mojang/minecraft/Entity/moveTo (FFFFF)V
-MD: com/mojang/minecraft/Entity/distanceTo (Lcom/mojang/minecraft/Entity;)F com/mojang/minecraft/Entity/distanceTo (Lcom/mojang/minecraft/Entity;)F
-MD: com/mojang/minecraft/Entity/distanceTo (FFF)F com/mojang/minecraft/Entity/distanceTo (FFF)F
-MD: com/mojang/minecraft/Entity/distanceToSqr (Lcom/mojang/minecraft/Entity;)F com/mojang/minecraft/Entity/distanceToSqr (Lcom/mojang/minecraft/Entity;)F
-MD: com/mojang/minecraft/Entity/playerTouch (Lcom/mojang/minecraft/Entity;)V com/mojang/minecraft/Entity/playerTouch (Lcom/mojang/minecraft/Entity;)V
-MD: com/mojang/minecraft/Entity/push (Lcom/mojang/minecraft/Entity;)V com/mojang/minecraft/Entity/push (Lcom/mojang/minecraft/Entity;)V
-MD: com/mojang/minecraft/Entity/push (FFF)V com/mojang/minecraft/Entity/push (FFF)V
-MD: com/mojang/minecraft/Entity/hurt (Lcom/mojang/minecraft/Entity;I)V com/mojang/minecraft/Entity/hurt (Lcom/mojang/minecraft/Entity;I)V
-MD: com/mojang/minecraft/Entity/intersects (FFFFFF)Z com/mojang/minecraft/Entity/intersects (FFFFFF)Z
-MD: com/mojang/minecraft/Entity/isPickable ()Z com/mojang/minecraft/Entity/isPickable ()Z
-MD: com/mojang/minecraft/Entity/isPushable ()Z com/mojang/minecraft/Entity/isPushable ()Z
-MD: com/mojang/minecraft/Entity/isShootable ()Z com/mojang/minecraft/Entity/isShootable ()Z
-MD: com/mojang/minecraft/Entity/awardKillScore (Lcom/mojang/minecraft/Entity;I)V com/mojang/minecraft/Entity/awardKillScore (Lcom/mojang/minecraft/Entity;I)V
-MD: com/mojang/minecraft/Entity/shouldRender (Lcom/mojang/minecraft/model/Vec3D;)Z com/mojang/minecraft/Entity/shouldRender (Lcom/mojang/minecraft/model/Vec3D;)Z
-MD: com/mojang/minecraft/Entity/shouldRenderAtSqrDistance (F)Z com/mojang/minecraft/Entity/shouldRenderAtSqrDistance (F)Z
-MD: com/mojang/minecraft/Entity/getTexture ()I com/mojang/minecraft/Entity/getTexture ()I
-MD: com/mojang/minecraft/Entity/isCreativeModeAllowed ()Z com/mojang/minecraft/Entity/isCreativeModeAllowed ()Z
-MD: com/mojang/minecraft/Entity/renderHover (Lcom/mojang/minecraft/render/TextureManager;F)V com/mojang/minecraft/Entity/renderHover (Lcom/mojang/minecraft/render/TextureManager;F)V
 FD: com/mojang/minecraft/b/a/a com/mojang/minecraft/render/TextureManager/textures
 FD: com/mojang/minecraft/b/a/b com/mojang/minecraft/render/TextureManager/textureImages
 FD: com/mojang/minecraft/b/a/c com/mojang/minecraft/render/TextureManager/idBuffer

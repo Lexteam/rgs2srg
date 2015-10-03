@@ -68,10 +68,10 @@ public class MappingsGen {
                 }
 
                 String obfuscated = gg + "/" + thing;
-                System.out.println(className);
-                System.out.println(gg);
-                System.out.println(obfuscated);
-                System.out.println(" ");
+                //System.out.println(className);
+                //System.out.println(gg);
+                //System.out.println(obfuscated);
+                //System.out.println(" ");
                 String deobfuscated = className + "/" + mapping[1];
 
                 String fieldLine = String.format("FD: %s %s\n", obfuscated, deobfuscated);
@@ -138,6 +138,15 @@ public class MappingsGen {
         String outerContent = modifiedType.substring(modifiedType.indexOf(")") + 1);
 
         String originalType = modifiedType;
+
+        for (String type : innerContent.split(";")) {
+            if (type.startsWith("L")) {
+                String newType = type.substring(1);
+                if (deobfMappings.containsKey(newType)) {
+                    originalType = originalType.replace(newType, deobfMappings.get(newType));
+                }
+            }
+        }
 
         if (outerContent.startsWith("L")) {
             String outerType = outerContent.substring(1, outerContent.length() - 1);

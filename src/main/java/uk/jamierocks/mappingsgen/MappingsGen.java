@@ -125,9 +125,9 @@ public class MappingsGen {
         String lastSplit = split[split.length-1];
         String className = modifiedMapping.replace("/" + lastSplit, "");
 
-        String originalClassName = deobfMappings.get(className);
-        if (originalClassName == null || originalClassName.equals("")) {
-            originalClassName = className;
+        String originalClassName = className;
+        if (deobfMappings.containsKey(className)) {
+            originalClassName = deobfMappings.get(className);
         }
 
         return originalClassName + "/" + lastSplit;

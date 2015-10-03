@@ -14,10 +14,10 @@ import java.util.Scanner;
 public class MappingsGen {
 
     // These are the input files
-    private static final File classRules = new File("input/client.rules");
-    private static final File classRgs = new File("input/client.rgs");
+    private static final File classRules = new File("input/server.rules");
+    private static final File classRgs = new File("input/server.rgs");
     // This is the file to output to
-    private static final File classOutput = new File("output/classes.srg");
+    private static final File classOutput = new File("output/server.srg");
 
     // This map stores the deobf -> obf class names
     private static Map<String, String> deobfMappings = Maps.newHashMap();

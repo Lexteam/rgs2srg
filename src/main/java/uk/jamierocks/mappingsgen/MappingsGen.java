@@ -20,7 +20,8 @@ public class MappingsGen {
     private static final File classOutput = new File("output/classes.srg");
 
     // This map stores the deobf -> obf class names
-    private static Map<String, String> classMappings = Maps.newHashMap();
+    private static Map<String, String> deobfMappings = Maps.newHashMap();
+    private static Map<String, String> obfMappings = Maps.newHashMap();
 
     // These Lists are used to seperate the methods and fields in the output file
     private static List<String> fieldLines = Lists.newArrayList();
@@ -43,7 +44,8 @@ public class MappingsGen {
             byte[] data = classLine.getBytes();
 
             if (!classLine.contains("@")) {
-                classMappings.put(mapping[1].replace(".", "/"), mapping[0].replace(".", "/"));
+                deobfMappings.put(mapping[1].replace(".", "/"), mapping[0].replace(".", "/"));
+                obfMappings.put(mapping[0].replace(".", "/"), mapping[1].replace(".", "/"));
                 srgFile.write(data, 0, data.length);
             }
         }
@@ -60,7 +62,7 @@ public class MappingsGen {
 
                 String className = mapping[0].replace("/" + thing, "");
 
-                String gg = classMappings.get(className);
+                String gg = deobfMappings.get(className);
                 if (gg == null || gg.equals("")) {
                     gg = className;
                 }
@@ -83,7 +85,7 @@ public class MappingsGen {
                 String[] mappings = line.split(" ");
 
                 String original = getOriginalMapping(mappings[0]);
-                String originalType = mappings[1]; // todo:
+                String originalType = getOriginalType(mappings[1]);
                 String modified = getModifiedMapping(mappings[0], mappings[2]);
                 String modifiedType = mappings[1];
 
@@ -123,11 +125,27 @@ public class MappingsGen {
         String lastSplit = split[split.length-1];
         String className = modifiedMapping.replace("/" + lastSplit, "");
 
-        String originalClassName = classMappings.get(className);
+        String originalClassName = deobfMappings.get(className);
         if (originalClassName == null || originalClassName.equals("")) {
             originalClassName = className;
         }
 
         return originalClassName + "/" + lastSplit;
+    }
+
+    public static String getOriginalType(String modifiedType) {
+        String innerContent = modifiedType.substring(modifiedType.indexOf("(") + 1, modifiedType.indexOf(")"));
+        String outerContent = modifiedType.substring(modifiedType.indexOf(")") + 1);
+
+        String originalType = modifiedType;
+
+        if (outerContent.startsWith("L")) {
+            String outerType = outerContent.substring(1, outerContent.length() - 1);
+            if (deobfMappings.containsKey(outerType)) {
+                originalType = originalType.replace(outerType, deobfMappings.get(outerType));
+            }
+        }
+
+        return originalType;
     }
 }

@@ -11,10 +11,13 @@ import java.util.Scanner;
 
 public class MappingsGen {
 
+    // These are the input files
     private static final File classRules = new File("input/client.rules");
     private static final File classRgs = new File("input/client.rgs");
+    // This is the file to output to
     private static final File classOutput = new File("output/classes.srg");
 
+    // This map stores the deobf -> obf class names
     private static Map<String, String> classMappings = Maps.newHashMap();
 
     public static void main(String[] args) throws IOException {
@@ -69,10 +72,43 @@ public class MappingsGen {
                 if (!fieldLine.contains("$") && !thing.equalsIgnoreCase(mapping[1])) {
                     srgFile.write(data, 0, data.length);
                 }
+            } else if(line.startsWith(".method_map ")) {
+                line = line.replace(".method_map ", "");
+
+                String[] mappings = line.split(" ");
+
+                String original = getOriginalMapping(mappings[0]);
+                String originalType = mappings[1]; // todo:
+                String modified = getModifiedMapping(mappings[0], mappings[2]);
+                String modifiedType = mappings[1];
+
+                String methodLine = String.format("MD: %s %s %s %s\n", original, originalType, modified, modifiedType);
+                srgFile.write(methodLine.getBytes()); //todo: check if they are the same
             }
         }
 
         rules.close();
         srgFile.close();
+    }
+
+    public static String getModifiedMapping(String originalMapping, String newMapping) {
+        String[] split = originalMapping.split("/");
+        String lastSplit = split[split.length-1];
+        String className = originalMapping.replace("/" + lastSplit, "");
+
+        return className + "/" + newMapping;
+    }
+
+    public static String getOriginalMapping(String modifiedMapping) {
+        String[] split = modifiedMapping.split("/");
+        String lastSplit = split[split.length-1];
+        String className = modifiedMapping.replace("/" + lastSplit, "");
+
+        String originalClassName = classMappings.get(className);
+        if (originalClassName == null || originalClassName.equals("")) {
+            originalClassName = className;
+        }
+
+        return originalClassName + "/" + lastSplit;
     }
 }

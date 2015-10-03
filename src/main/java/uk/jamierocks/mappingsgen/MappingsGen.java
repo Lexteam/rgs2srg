@@ -83,7 +83,7 @@ public class MappingsGen {
                 String[] originalSplit = original.split("/");
                 String lastOriginal = originalSplit[originalSplit.length-1];
 
-                if (!lastOriginal.equalsIgnoreCase(mappings[2])) {
+                if (!lastOriginal.equalsIgnoreCase(mappings[2]) && !methodLine.contains("$")) {
                     methodLines.add(methodLine);
                 }
             }

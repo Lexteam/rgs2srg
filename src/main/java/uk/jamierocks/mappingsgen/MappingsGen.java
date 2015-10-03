@@ -55,28 +55,17 @@ public class MappingsGen {
             if (line.startsWith(".field_map ")) {
                 line = line.replace(".field_map ", "");
 
-                String[] mapping = line.split(" ");
+                String[] mappings = line.split(" ");
 
-                String[] thingy = mapping[0].split("/");
-                String thing = thingy[thingy.length-1];
+                String original = getOriginalMapping(mappings[0]);
+                String modified = getModifiedMapping(mappings[0], mappings[1]);
 
-                String className = mapping[0].replace("/" + thing, "");
+                String fieldLine = String.format("FD: %s %s\n", original, modified);
 
-                String gg = deobfMappings.get(className);
-                if (gg == null || gg.equals("")) {
-                    gg = className;
-                }
+                String[] originalSplit = original.split("/");
+                String lastOriginal = originalSplit[originalSplit.length-1];
 
-                String obfuscated = gg + "/" + thing;
-                //System.out.println(className);
-                //System.out.println(gg);
-                //System.out.println(obfuscated);
-                //System.out.println(" ");
-                String deobfuscated = className + "/" + mapping[1];
-
-                String fieldLine = String.format("FD: %s %s\n", obfuscated, deobfuscated);
-
-                if (!fieldLine.contains("$") && !thing.equalsIgnoreCase(mapping[1])) {
+                if (!lastOriginal.equalsIgnoreCase(mappings[1]) && !fieldLine.contains("$")) {
                     fieldLines.add(fieldLine);
                 }
             } else if(line.startsWith(".method_map ")) {

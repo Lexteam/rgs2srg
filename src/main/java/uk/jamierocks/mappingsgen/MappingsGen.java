@@ -103,23 +103,23 @@ public class MappingsGen {
 
     public static String getModifiedMapping(String originalMapping, String newMapping) {
         String[] split = originalMapping.split("/");
-        String lastSplit = split[split.length-1];
-        String className = originalMapping.replace("/" + lastSplit, "");
+        int lastIndex = originalMapping.lastIndexOf(split[split.length-1]);
 
-        return className + "/" + newMapping;
+        return originalMapping.substring(0, lastIndex) + newMapping;
     }
 
     public static String getOriginalMapping(String modifiedMapping) {
         String[] split = modifiedMapping.split("/");
-        String lastSplit = split[split.length-1];
-        String className = modifiedMapping.replace("/" + lastSplit, "");
+        int lastIndex = modifiedMapping.lastIndexOf(split[split.length-1]);
 
-        String originalClassName = className;
+        String className = modifiedMapping.substring(0, lastIndex - 1);
         if (deobfMappings.containsKey(className)) {
-            originalClassName = deobfMappings.get(className);
+            className = deobfMappings.get(className);
         }
 
-        return originalClassName + "/" + lastSplit;
+        String mapping = modifiedMapping.substring(lastIndex);
+
+        return className + "/" + mapping;
     }
 
     public static String getOriginalType(String modifiedType) {

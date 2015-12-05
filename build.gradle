@@ -20,6 +20,7 @@ repositories {
 
 dependencies {
     compile 'com.google.guava:guava:18.0'
+    compile 'com.beust:jcommander:1.48'
 }
 
 license {

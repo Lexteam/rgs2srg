@@ -34,25 +34,51 @@ import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 
+/**
+ * Convert *.rgs mappings to *.srg mappings.
+ */
 public class MappingsConverter {
 
-    // These are the input files
-    private static final File classRgs = new File("input/server.rgs");
-    // This is the file to output to
-    private static final File classOutput = new File("output/server.srg");
+    private final File input;
+    private final File output;
 
     // This map stores the deobf -> obf class names
-    private static Map<String, String> deobfMappings = Maps.newHashMap();
-    private static Map<String, String> obfMappings = Maps.newHashMap();
+    private Map<String, String> deobfMappings = Maps.newHashMap();
+    private Map<String, String> obfMappings = Maps.newHashMap();
 
     // These Lists are used to seperate the methods and fields in the output file
-    private static List<String> classLines = Lists.newArrayList();
-    private static List<String> fieldLines = Lists.newArrayList();
-    private static List<String> methodLines = Lists.newArrayList();
+    private List<String> classLines = Lists.newArrayList();
+    private List<String> fieldLines = Lists.newArrayList();
+    private List<String> methodLines = Lists.newArrayList();
 
-    public static void main(String[] args) throws IOException {
-        FileInputStream rgs = new FileInputStream(classRgs);
-        FileOutputStream srgFile = new FileOutputStream(classOutput);
+    public MappingsConverter(File input, File output) {
+        this.input = input;
+        this.output = output;
+
+        if (!input.exists()) {
+            System.out.println("Input doesn't exist! Exiting...");
+            System.exit(0);
+        }
+        if (!output.exists()) {
+            System.out.println("Output doesn't exist! Creating...");
+            try {
+                if (!output.createNewFile()) {
+                    System.out.println("Could not create output! Exiting...");
+                    System.exit(0);
+                } else {
+                    System.out.println("Successfully created output.");
+                }
+            } catch (IOException ex) {
+                System.out.println("Oh crap! Something bad has happened. Exiting...");
+                ex.printStackTrace();
+                System.exit(0);
+            }
+        }
+    }
+
+    public void convert() throws IOException {
+        FileInputStream rgs = new FileInputStream(this.input);
+        FileOutputStream srgFile = new FileOutputStream(this.output);
         Scanner rgsScanner = new Scanner(rgs);
 
         while(rgsScanner.hasNext()) {
@@ -64,17 +90,17 @@ public class MappingsConverter {
 
                 String classLine = String.format("CL: %s %s\n", mappings[0].replace(".", "/"), mappings[1].replace(".", "/"));
                 if (!classLine.contains("@")) {
-                    deobfMappings.put(mappings[1].replace(".", "/"), mappings[0].replace(".", "/"));
-                    obfMappings.put(mappings[0].replace(".", "/"), mappings[1].replace(".", "/"));
-                    classLines.add(classLine);
+                    this.deobfMappings.put(mappings[1].replace(".", "/"), mappings[0].replace(".", "/"));
+                    this.obfMappings.put(mappings[0].replace(".", "/"), mappings[1].replace(".", "/"));
+                    this.classLines.add(classLine);
                 }
             } else if (line.startsWith(".field_map ")) {
                 line = line.replace(".field_map ", "");
 
                 String[] mappings = line.split(" ");
 
-                String original = getOriginalMapping(mappings[0]);
-                String modified = getModifiedMapping(mappings[0], mappings[1]);
+                String original = this.getOriginalMapping(mappings[0]);
+                String modified = this.getModifiedMapping(mappings[0], mappings[1]);
 
                 String fieldLine = String.format("FD: %s %s\n", original, modified);
 
@@ -82,16 +108,16 @@ public class MappingsConverter {
                 String lastOriginal = originalSplit[originalSplit.length-1];
 
                 if (!lastOriginal.equalsIgnoreCase(mappings[1]) && !fieldLine.contains("$")) {
-                    fieldLines.add(fieldLine);
+                    this.fieldLines.add(fieldLine);
                 }
             } else if(line.startsWith(".method_map ")) {
                 line = line.replace(".method_map ", "");
 
                 String[] mappings = line.split(" ");
 
-                String original = getOriginalMapping(mappings[0]);
-                String originalType = getOriginalType(mappings[1]);
-                String modified = getModifiedMapping(mappings[0], mappings[2]);
+                String original = this.getOriginalMapping(mappings[0]);
+                String originalType = this.getOriginalType(mappings[1]);
+                String modified = this.getModifiedMapping(mappings[0], mappings[2]);
                 String modifiedType = mappings[1];
 
                 String methodLine = String.format("MD: %s %s %s %s\n", original, originalType, modified, modifiedType);
@@ -100,40 +126,41 @@ public class MappingsConverter {
                 String lastOriginal = originalSplit[originalSplit.length-1];
 
                 if (!lastOriginal.equalsIgnoreCase(mappings[2]) && !methodLine.contains("$")) {
-                    methodLines.add(methodLine);
+                    this.methodLines.add(methodLine);
                 }
             }
         }
 
-        for (String classLine : classLines) {
+        for (String classLine : this.classLines) {
             srgFile.write(classLine.getBytes());
         }
 
-        for  (String fieldLine : fieldLines) {
+        for  (String fieldLine : this.fieldLines) {
             srgFile.write(fieldLine.getBytes());
         }
 
-        for (String methodLine : methodLines) {
+        for (String methodLine : this.methodLines) {
             srgFile.write(methodLine.getBytes());
         }
 
+        rgs.close();
         srgFile.close();
     }
 
-    public static String getModifiedMapping(String originalMapping, String newMapping) {
+    private String getModifiedMapping(String originalMapping, String newMapping) {
         String[] split = originalMapping.split("/");
         int lastIndex = originalMapping.lastIndexOf(split[split.length-1]);
 
         return originalMapping.substring(0, lastIndex) + newMapping;
     }
 
-    public static String getOriginalMapping(String modifiedMapping) {
+    private String getOriginalMapping(String modifiedMapping) {
         String[] split = modifiedMapping.split("/");
         int lastIndex = modifiedMapping.lastIndexOf(split[split.length-1]);
 
         String className = modifiedMapping.substring(0, lastIndex - 1);
-        if (deobfMappings.containsKey(className)) {
-            className = deobfMappings.get(className);
+        if (this.deobfMappings.containsKey(className)) {
+            className = this.deobfMappings.get(className);
         }
 
         String mapping = modifiedMapping.substring(lastIndex);
@@ -141,7 +168,7 @@ public class MappingsConverter {
         return className + "/" + mapping;
     }
 
-    public static String getOriginalType(String modifiedType) {
+    private String getOriginalType(String modifiedType) {
         String innerContent = modifiedType.substring(modifiedType.indexOf("(") + 1, modifiedType.indexOf(")"));
         String outerContent = modifiedType.substring(modifiedType.indexOf(")") + 1);
 
@@ -150,16 +177,16 @@ public class MappingsConverter {
         for (String type : innerContent.split(";")) {
             if (type.startsWith("L")) {
                 String newType = type.substring(1);
-                if (deobfMappings.containsKey(newType)) {
-                    originalType = originalType.replace(newType, deobfMappings.get(newType));
+                if (this.deobfMappings.containsKey(newType)) {
+                    originalType = originalType.replace(newType, this.deobfMappings.get(newType));
                 }
             }
         }
 
         if (outerContent.startsWith("L")) {
             String outerType = outerContent.substring(1, outerContent.length() - 1);
-            if (deobfMappings.containsKey(outerType)) {
-                originalType = originalType.replace(outerType, deobfMappings.get(outerType));
+            if (this.deobfMappings.containsKey(outerType)) {
+                originalType = originalType.replace(outerType, this.deobfMappings.get(outerType));
             }
         }
 

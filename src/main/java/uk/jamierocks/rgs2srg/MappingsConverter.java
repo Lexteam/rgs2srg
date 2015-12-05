@@ -81,6 +81,8 @@ public class MappingsConverter {
         FileOutputStream srgFile = new FileOutputStream(this.output);
         Scanner rgsScanner = new Scanner(rgs);
 
+        List<String> delayedReadings = Lists.newArrayList();
+
         while(rgsScanner.hasNext()) {
             String line = rgsScanner.nextLine();
             if (line.startsWith(".class_map ")) {
@@ -94,12 +96,18 @@ public class MappingsConverter {
                     this.obfMappings.put(mappings[0].replace(".", "/"), mappings[1].replace(".", "/"));
                     this.classLines.add(classLine);
                 }
-            } else if (line.startsWith(".field_map ")) {
+            } else {
+                delayedReadings.add(line);
+            }
+        }
+
+        for (String line : delayedReadings) {
+            if (line.startsWith(".field_map ")) {
                 line = line.replace(".field_map ", "");
 
                 String[] mappings = line.split(" ");
 
-                String original = this.getOriginalMapping(mappings[0]);
+                String original = mappings[0];
                 String modified = this.getModifiedMapping(mappings[0], mappings[1]);
 
                 String fieldLine = String.format("FD: %s %s\n", original, modified);
@@ -115,10 +123,10 @@ public class MappingsConverter {
 
                 String[] mappings = line.split(" ");
 
-                String original = this.getOriginalMapping(mappings[0]);
-                String originalType = this.getOriginalType(mappings[1]);
+                String original = mappings[0];
+                String originalType = mappings[1];
                 String modified = this.getModifiedMapping(mappings[0], mappings[2]);
-                String modifiedType = mappings[1];
+                String modifiedType = this.getModifiedType(mappings[1]);
 
                 String methodLine = String.format("MD: %s %s %s %s\n", original, originalType, modified, modifiedType);
 
@@ -149,47 +157,37 @@ public class MappingsConverter {
 
     private String getModifiedMapping(String originalMapping, String newMapping) {
         String[] split = originalMapping.split("/");
-        int lastIndex = originalMapping.lastIndexOf(split[split.length-1]);
 
-        return originalMapping.substring(0, lastIndex) + newMapping;
-    }
-
-    private String getOriginalMapping(String modifiedMapping) {
-        String[] split = modifiedMapping.split("/");
-        int lastIndex = modifiedMapping.lastIndexOf(split[split.length-1]);
-
-        String className = modifiedMapping.substring(0, lastIndex - 1);
-        if (this.deobfMappings.containsKey(className)) {
-            className = this.deobfMappings.get(className);
+        String className = originalMapping.substring(0, split[split.length-1].length());
+        if (this.obfMappings.containsKey(className)) {
+            className = this.obfMappings.get(className);
         }
 
-        String mapping = modifiedMapping.substring(lastIndex);
-
-        return className + "/" + mapping;
+        return className + "/" + newMapping;
     }
 
-    private String getOriginalType(String modifiedType) {
-        String innerContent = modifiedType.substring(modifiedType.indexOf("(") + 1, modifiedType.indexOf(")"));
-        String outerContent = modifiedType.substring(modifiedType.indexOf(")") + 1);
+    private String getModifiedType(String originalType) {
+        String innerContent = originalType.substring(originalType.indexOf("(") + 1, originalType.indexOf(")"));
+        String outerContent = originalType.substring(originalType.indexOf(")") + 1);
 
-        String originalType = modifiedType;
+        String modifiedType = originalType;
 
         for (String type : innerContent.split(";")) {
             if (type.startsWith("L")) {
                 String newType = type.substring(1);
-                if (this.deobfMappings.containsKey(newType)) {
-                    originalType = originalType.replace(newType, this.deobfMappings.get(newType));
+                if (this.obfMappings.containsKey(newType)) {
+                    modifiedType = modifiedType.replace(newType, this.obfMappings.get(newType));
                 }
             }
         }
 
         if (outerContent.startsWith("L")) {
             String outerType = outerContent.substring(1, outerContent.length() - 1);
-            if (this.deobfMappings.containsKey(outerType)) {
-                originalType = originalType.replace(outerType, this.deobfMappings.get(outerType));
+            if (this.obfMappings.containsKey(outerType)) {
+                modifiedType = modifiedType.replace(outerType, this.obfMappings.get(outerType));
             }
         }
 
-        return originalType;
+        return modifiedType;
     }
 }

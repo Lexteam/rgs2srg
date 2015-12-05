@@ -37,7 +37,6 @@ import java.util.Scanner;
 public class MappingsConverter {
 
     // These are the input files
-    private static final File classRules = new File("input/server.rules");
     private static final File classRgs = new File("input/server.rgs");
     // This is the file to output to
     private static final File classOutput = new File("output/server.srg");
@@ -47,35 +46,29 @@ public class MappingsConverter {
     private static Map<String, String> obfMappings = Maps.newHashMap();
 
     // These Lists are used to seperate the methods and fields in the output file
+    private static List<String> classLines = Lists.newArrayList();
     private static List<String> fieldLines = Lists.newArrayList();
     private static List<String> methodLines = Lists.newArrayList();
 
     public static void main(String[] args) throws IOException {
-        FileInputStream rules = new FileInputStream(classRules);
         FileInputStream rgs = new FileInputStream(classRgs);
         FileOutputStream srgFile = new FileOutputStream(classOutput);
-        Scanner rulesScanner = new Scanner(rules);
         Scanner rgsScanner = new Scanner(rgs);
-
-        while (rulesScanner.hasNext()) {
-            String line = rulesScanner.nextLine();
-            line = line.replace("rule ", "");
-
-            String[] mapping = line.split(" ");
-
-            String classLine = String.format("CL: %s %s\n", mapping[0].replace(".", "/"), mapping[1].replace(".", "/"));
-            byte[] data = classLine.getBytes();
-
-            if (!classLine.contains("@")) {
-                deobfMappings.put(mapping[1].replace(".", "/"), mapping[0].replace(".", "/"));
-                obfMappings.put(mapping[0].replace(".", "/"), mapping[1].replace(".", "/"));
-                srgFile.write(data, 0, data.length);
-            }
-        }
 
         while(rgsScanner.hasNext()) {
             String line = rgsScanner.nextLine();
-            if (line.startsWith(".field_map ")) {
+            if (line.startsWith(".class_map ")) {
+                line = line.replace(".class_map ", "");
+
+                String[] mappings = line.split(" ");
+
+                String classLine = String.format("CL: %s %s\n", mappings[0].replace(".", "/"), mappings[1].replace(".", "/"));
+                if (!classLine.contains("@")) {
+                    deobfMappings.put(mappings[1].replace(".", "/"), mappings[0].replace(".", "/"));
+                    obfMappings.put(mappings[0].replace(".", "/"), mappings[1].replace(".", "/"));
+                    classLines.add(classLine);
+                }
+            } else if (line.startsWith(".field_map ")) {
                 line = line.replace(".field_map ", "");
 
                 String[] mappings = line.split(" ");
@@ -112,6 +105,10 @@ public class MappingsConverter {
             }
         }
 
+        for (String classLine : classLines) {
+            srgFile.write(classLine.getBytes());
+        }
+
         for  (String fieldLine : fieldLines) {
             srgFile.write(fieldLine.getBytes());
         }
@@ -120,7 +117,6 @@ public class MappingsConverter {
             srgFile.write(methodLine.getBytes());
         }
 
-        rules.close();
         srgFile.close();
     }
 

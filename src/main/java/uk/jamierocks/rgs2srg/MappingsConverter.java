@@ -21,7 +21,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package uk.jamierocks.mappingsgen;
+package uk.jamierocks.rgs2srg;
 
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
@@ -34,7 +34,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 
-public class MappingsGen {
+public class MappingsConverter {
 
     // These are the input files
     private static final File classRules = new File("input/server.rules");

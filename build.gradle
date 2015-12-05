@@ -5,6 +5,7 @@ plugins {
     id 'eclipse'
 
     id 'com.github.hierynomus.license' version '0.11.0'
+    id 'com.github.johnrengelman.shadow' version '1.2.2'
 }
 defaultTasks 'clean', 'licenseFormat'
 
@@ -23,6 +24,26 @@ dependencies {
     compile 'com.beust:jcommander:1.48'
 }
 
+processResources {
+    from 'LICENSE.txt'
+}
+
+jar {
+    classifier = 'base'
+
+    manifest {
+        attributes(
+                'Implementation-Title': project.name,
+                'Implementation-Version': version,
+                'Main-Class': 'uk.jamierocks.rgs2srg.Main'
+        )
+    }
+}
+
+shadowJar {
+    classifier = ''
+}
+
 license {
     header file('HEADER.txt')
     include '**/*.java'
@@ -32,6 +53,10 @@ license {
     mapping {
         java = 'SLASHSTAR_STYLE'
     }
+}
+
+artifacts {
+    archives shadowJar
 }
 
 task wrapper(type: Wrapper) {

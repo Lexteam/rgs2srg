@@ -1,6 +1,12 @@
 plugins {
     id 'java'
+
+    id 'idea'
+    id 'eclipse'
+
+    id 'com.github.hierynomus.license' version '0.11.0'
 }
+defaultTasks 'clean', 'licenseFormat'
 
 group 'uk.jamierocks'
 version '1.0-SNAPSHOT'
@@ -14,4 +20,19 @@ repositories {
 
 dependencies {
     compile 'com.google.guava:guava:18.0'
+}
+
+license {
+    header file('HEADER.txt')
+    include '**/*.java'
+    include '**/*.groovy'
+
+    strictCheck true
+    mapping {
+        java = 'SLASHSTAR_STYLE'
+    }
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.9'
 }

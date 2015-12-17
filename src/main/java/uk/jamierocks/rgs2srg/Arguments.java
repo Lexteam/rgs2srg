@@ -30,10 +30,10 @@ import com.beust.jcommander.Parameter;
  */
 public class Arguments {
 
-    @Parameter(names = { "--input", "-i" })
+    @Parameter(names = {"--input", "-i"})
     private String input = "input.rgs";
 
-    @Parameter(names = { "--output", "-o" })
+    @Parameter(names = {"--output", "-o"})
     private String output = "output.srg";
 
     public String getInput() {

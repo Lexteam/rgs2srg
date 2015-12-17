@@ -42,11 +42,9 @@ public class MappingsConverter {
     private final File input;
     private final File output;
 
-    // This map stores the deobf -> obf class names
     private Map<String, String> deobfMappings = Maps.newHashMap();
     private Map<String, String> obfMappings = Maps.newHashMap();
 
-    // These Lists are used to seperate the methods and fields in the output file
     private List<String> classLines = Lists.newArrayList();
     private List<String> fieldLines = Lists.newArrayList();
     private List<String> methodLines = Lists.newArrayList();
@@ -83,14 +81,15 @@ public class MappingsConverter {
 
         List<String> delayedReadings = Lists.newArrayList();
 
-        while(rgsScanner.hasNext()) {
+        while (rgsScanner.hasNext()) {
             String line = rgsScanner.nextLine();
             if (line.startsWith(".class_map ")) {
                 line = line.replace(".class_map ", "");
 
                 String[] mappings = line.split(" ");
 
-                String classLine = String.format("CL: %s %s\n", mappings[0].replace(".", "/"), mappings[1].replace(".", "/"));
+                String classLine =
+                        String.format("CL: %s %s\n", mappings[0].replace(".", "/"), mappings[1].replace(".", "/"));
                 if (!classLine.contains("@")) {
                     this.deobfMappings.put(mappings[1].replace(".", "/"), mappings[0].replace(".", "/"));
                     this.obfMappings.put(mappings[0].replace(".", "/"), mappings[1].replace(".", "/"));
@@ -113,12 +112,12 @@ public class MappingsConverter {
                 String fieldLine = String.format("FD: %s %s\n", original, modified);
 
                 String[] originalSplit = original.split("/");
-                String lastOriginal = originalSplit[originalSplit.length-1];
+                String lastOriginal = originalSplit[originalSplit.length - 1];
 
                 if (!lastOriginal.equalsIgnoreCase(mappings[1]) && !fieldLine.contains("$")) {
                     this.fieldLines.add(fieldLine);
                 }
-            } else if(line.startsWith(".method_map ")) {
+            } else if (line.startsWith(".method_map ")) {
                 line = line.replace(".method_map ", "");
 
                 String[] mappings = line.split(" ");
@@ -131,7 +130,7 @@ public class MappingsConverter {
                 String methodLine = String.format("MD: %s %s %s %s\n", original, originalType, modified, modifiedType);
 
                 String[] originalSplit = original.split("/");
-                String lastOriginal = originalSplit[originalSplit.length-1];
+                String lastOriginal = originalSplit[originalSplit.length - 1];
 
                 if (!lastOriginal.equalsIgnoreCase(mappings[2]) && !methodLine.contains("$")) {
                     this.methodLines.add(methodLine);
@@ -143,7 +142,7 @@ public class MappingsConverter {
             srgFile.write(classLine.getBytes());
         }
 
-        for  (String fieldLine : this.fieldLines) {
+        for (String fieldLine : this.fieldLines) {
             srgFile.write(fieldLine.getBytes());
         }
 
@@ -158,7 +157,7 @@ public class MappingsConverter {
     private String getModifiedMapping(String originalMapping, String newMapping) {
         String[] split = originalMapping.split("/");
 
-        String className = originalMapping.substring(0, split[split.length-1].length());
+        String className = originalMapping.substring(0, split[split.length - 1].length());
         if (this.obfMappings.containsKey(className)) {
             className = this.obfMappings.get(className);
         }
